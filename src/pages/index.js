@@ -20,10 +20,6 @@ class Home extends Component {
               </Link>
               <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
               <span>
-                <ClockIcon
-                  size={14}
-                  css={{ position: `relative`, bottom: 1 }}
-                />
                 {` `}
                 {node.date}
               </span>

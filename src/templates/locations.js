@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from '../layouts'
+import '../components/bootstrap.min.css'
 
 class LocationsTemplate extends Component {
   render() {
@@ -9,6 +10,13 @@ class LocationsTemplate extends Component {
 
     return (
       <Layout>
+        <link
+          rel="stylesheet"
+          id="sage/css-css"
+          href="https://www.atacpa.net/wp-content/themes/ata/dist/styles/main.css"
+          type="text/css"
+          media="all"
+        />
         <h1 dangerouslySetInnerHTML={{ __html: locations.title }} />
         <section
           className="bg-center bg-cover"
