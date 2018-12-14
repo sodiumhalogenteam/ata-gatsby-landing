@@ -27,15 +27,6 @@ class Home extends Component {
           ))}
         </div>
         <hr /> */}
-        <h1>Leaders</h1>
-        {data.allWordpressWpLeader.edges.map(({ node }) => (
-          <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
-            <Link to={node.slug} css={{ textDecoration: `none` }}>
-              <h3>{node.title}</h3>
-            </Link>
-          </div>
-        ))}
-        <hr />
         <h1>Locations</h1>
         {data.allWordpressWpLocations.edges.map(({ node }) => (
           <div css={{ marginBottom: rhythm(2) }} key={node.slug}>

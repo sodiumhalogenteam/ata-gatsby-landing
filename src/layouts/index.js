@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
+import '../components/bootstrap.min.css'
 
 const containerStyle = {
   maxWidth: 700,
@@ -14,6 +15,13 @@ class DefaultLayout extends React.Component {
   render() {
     return (
       <div>
+        <link
+          rel="stylesheet"
+          id="sage/css-css"
+          href="https://www.atacpa.net/wp-content/themes/ata/dist/styles/main.css"
+          type="text/css"
+          media="all"
+        />
         <div
           css={{
             background: `rgb(207, 58, 62)`,
@@ -46,7 +54,7 @@ class DefaultLayout extends React.Component {
                 }}
                 to="/"
               >
-                Gatsby + Wordpress!!
+                ATA
               </Link>
             </h1>
           </div>
