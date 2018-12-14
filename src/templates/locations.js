@@ -61,6 +61,9 @@ class LocationsTemplate extends Component {
         </section>
 
         <section className="section-lg team-grid container">
+          {locations.acf.specialties.map(
+            (speciality, i) => locations.acf.specialties[i].post_content
+          )}
           <div className="row">
             <div className="col-sm-6">
               <h2>Specialties</h2>
@@ -85,6 +88,7 @@ class LocationsTemplate extends Component {
             </h2>
           </div>
         </div>
+        <p>{locations.acf.specialties[0].post_title}</p>
       </Layout>
     )
   }
@@ -116,6 +120,10 @@ export const pageQuery = graphql`
         meta_description
         meta_keywords
         google_map_iframe_link
+        specialties {
+          post_title
+          post_content
+        }
       }
     }
     site {
