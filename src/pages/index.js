@@ -46,15 +46,6 @@ class Home extends Component {
             <Link to={node.slug} css={{ textDecoration: `none` }}>
               <h3>{node.title}</h3>
             </Link>
-            <p>{node.acf.city}</p>
-            <p>{node.acf.state}</p>
-            <p>{node.acf.address}</p>
-            <p>{node.acf.zip_code}</p>
-            <p>{node.acf.phone}</p>
-            <p>{node.acf.fax}</p>
-            <p>{node.acf.landing_page_select}</p>
-            <p>{node.acf.meta_description}</p>
-            <p>{node.acf.meta_keywords}</p>
           </div>
         ))}
       </Layout>
@@ -91,17 +82,6 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          acf {
-            city
-            state
-            address
-            zip_code
-            phone
-            fax
-            landing_page_select
-            meta_description
-            meta_keywords
-          }
         }
       }
     }

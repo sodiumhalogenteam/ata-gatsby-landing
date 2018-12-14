@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
 import Layout from '../layouts'
-
-import { rhythm } from '../utils/typography'
 
 class LocationsTemplate extends Component {
   render() {
@@ -13,42 +10,80 @@ class LocationsTemplate extends Component {
     return (
       <Layout>
         <h1 dangerouslySetInnerHTML={{ __html: locations.title }} />
-        <div dangerouslySetInnerHTML={{ __html: locations.content }} />
-        {locations.acf &&
-          locations.acf.page_builder_post &&
-          locations.acf.page_builder_post.map((layout, i) => {
-            if (layout.__typename === `WordPressAcf_image_gallery`) {
-              return (
-                <div key={`${i} image-gallery`}>
-                  <h2>ACF Image Gallery</h2>
-                  {layout.pictures.map(({ picture }) => {
-                    const img = picture.localFile.childImageSharp.fluid
-                    return (
-                      <Img
-                        css={{ marginBottom: rhythm(1) }}
-                        key={img.src}
-                        fluid={img}
-                      />
-                    )
-                  })}
+        <section
+          className="bg-center bg-cover"
+          style={{
+            backgroundPosition: '50%',
+            backgroundSize: 'cover',
+            backgroundImage: "url('')",
+          }}
+        >
+          <div className="bg-filter sTop">
+            <div className="container">
+              <div className="jumbotron trn v-center">
+                <p>Alexander Thompson Arnold PLLC</p>
+                <h1>
+                  {locations.acf.city}, {locations.acf.state}
+                </h1>
+                <div className="row">
+                  <div className="col-sm-6">
+                    <h4>{locations.acf.address}</h4>
+                    <h4>
+                      {locations.acf.city}, {locations.acf.state}{' '}
+                      {locations.acf.zip_code}
+                    </h4>
+                  </div>
+                  <div className="col-sm-6">
+                    <h4>
+                      Phone:{' '}
+                      <a
+                        className="heading-btn"
+                        href="tel:{locations.acf.phone}"
+                      >
+                        {locations.acf.phone}
+                      </a>
+                    </h4>
+                    <h4>
+                      Fax:{' '}
+                      <a
+                        className="heading-btn"
+                        href="email:{locations.acf.fax}"
+                      >
+                        {locations.acf.fax}
+                      </a>
+                    </h4>
+                  </div>
                 </div>
-              )
-            }
-            if (layout.__typename === `WordPressAcf_post_photo`) {
-              const img = layout.photo.localFile.childImageSharp.fluid
-              return (
-                <div key={`${i}-photo`}>
-                  <h2>ACF Locations Photo</h2>
-                  <Img
-                    css={{ marginBottom: rhythm(1) }}
-                    src={img.src}
-                    fluid={img}
-                  />
-                </div>
-              )
-            }
-            return null
-          })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-lg team-grid container">
+          <div className="row">
+            <div className="col-sm-6">
+              <h2>Specialties</h2>
+            </div>
+            <div className="col-sm-6">
+              <iframe
+                width="100%"
+                height="350"
+                frameborder="0"
+                style={{ border: 0 }}
+                src={locations.acf.google_map_iframe_link}
+                allowfullscreen
+              />
+            </div>
+          </div>
+        </section>
+
+        <div className="section-lg team-grid container">
+          <div className="row">
+            <h2 className="leader-title text-center col-sm-12">
+              Nashville Leaders
+            </h2>
+          </div>
+        </div>
       </Layout>
     )
   }
@@ -66,6 +101,18 @@ export const pageQuery = graphql`
     wordpressWpLocations(id: { eq: $id }) {
       title
       content
+      acf {
+        city
+        state
+        address
+        zip_code
+        phone
+        fax
+        landing_page_select
+        meta_description
+        meta_keywords
+        google_map_iframe_link
+      }
     }
     site {
       siteMetadata {
