@@ -28,6 +28,19 @@ export const pageQuery = graphql`
     wordpressWpLeader(id: { eq: $id }) {
       title
       content
+      acf {
+        credentials
+        title
+        primary_location
+        phone
+        email
+        linkdin
+        bio
+        Services
+        industries
+        principal
+        hide_leader
+      }
     }
     site {
       siteMetadata {

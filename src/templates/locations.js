@@ -2,10 +2,30 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from '../layouts'
+import styled from 'styled-components'
+
+const SpecialtiesWrap = styled.div`
+  .services-cta {
+    display: none;
+  }
+`
 
 class LocationsTemplate extends Component {
   render() {
+    const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
+    let leaders = []
+    {
+      data.allWordpressWpLeader.edges.map(({ node }) =>
+        node.acf.all_locations
+          ? node.acf.all_locations.map((aLocation, i) =>
+              node.acf.all_locations[i].post_title === locations.title
+                ? leaders.push(node)
+                : null
+            )
+          : null
+      )
+    }
 
     return (
       <Layout>
@@ -60,22 +80,28 @@ class LocationsTemplate extends Component {
           </div>
         </section>
 
+        <SpecialtiesWrap className="row">
+          <div className="col-md-12">
+            {locations.acf.specialties.map((speciality, i) => (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: locations.acf.specialties[i].post_content,
+                }}
+                key={i}
+              />
+            ))}
+          </div>
+        </SpecialtiesWrap>
         <section className="section-lg team-grid container">
-          {locations.acf.specialties.map(
-            (speciality, i) => locations.acf.specialties[i].post_content
-          )}
           <div className="row">
-            <div className="col-sm-6">
-              <h2>Specialties</h2>
-            </div>
-            <div className="col-sm-6">
+            <div className="col-sm-12">
               <iframe
                 width="100%"
                 height="350"
-                frameborder="0"
+                frameBorder="0"
                 style={{ border: 0 }}
                 src={locations.acf.google_map_iframe_link}
-                allowfullscreen
+                allowFullScreen
               />
             </div>
           </div>
@@ -84,11 +110,98 @@ class LocationsTemplate extends Component {
         <div className="section-lg team-grid container">
           <div className="row">
             <h2 className="leader-title text-center col-sm-12">
-              Nashville Leaders
+              {locations.acf.city}, {locations.acf.state} Leaders
             </h2>
+
+            {leaders.map((leader, i) => (
+              <div key={i}>
+                <div className="col-lg-3 col-md-3 col-sm-6 staff">
+                  <div className="profile-circle">
+                    <div className="hover-content ">
+                      <img
+                        src={leaders[i].better_featured_image.source_url}
+                        className="img-responsive"
+                      />
+                      {leaders[i].acf.bio !== '' ? (
+                        <div className="content-circle content-center">
+                          <ul className="circle-icons icons-list">
+                            <li>
+                              <a
+                                href="#"
+                                data-toggle="modal"
+                                data-target={`#bioModal${i}`}
+                                title="View Bio"
+                              >
+                                <i className="fa fa-align-left fa-5x" />
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                    <h4>
+                      {leaders[i].title},<br />
+                      <em>{leaders[i].acf.credentials}</em>
+                      <small>{leaders[i].acf.title}</small>
+                    </h4>
+                    <p>
+                      <a href={`tel:${leaders[i].acf.phone}`}>
+                        {leaders[i].acf.phone}
+                      </a>
+                      <br />
+                      {leaders[i].acf.linkdin !== '' ? (
+                        <a
+                          className="linked-in"
+                          style={{ borderBottom: 'none' }}
+                          href={`#bioModal${leaders[i].acf.linkdin}`}
+                        >
+                          <i
+                            className="fa fa-linkedin-square fa-2x"
+                            aria-hidden="true"
+                          />
+                        </a>
+                      ) : null}
+                      <br />
+                    </p>
+                  </div>
+                </div>
+
+                {leaders[i].acf.bio !== '' ? (
+                  <div
+                    className="modal fade"
+                    id={`bioModal${i}`}
+                    tabIndex="-1"
+                    role="dialog"
+                  >
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <button
+                            type="button"
+                            className="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span aria-hidden="true"> &times; </span>
+                          </button>
+                          <h4>{leaders[i].title}'s Bio</h4>
+                        </div>
+                        <div className="modal-body">
+                          <img
+                            src={leaders[i].better_featured_image.source_url}
+                            className="img-responsive"
+                          />
+                          <div className="space-sm" />
+                          <p>{leaders[i].acf.bio}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            ))}
           </div>
         </div>
-        <p>{locations.acf.specialties[0].post_title}</p>
       </Layout>
     )
   }
@@ -104,6 +217,7 @@ export default LocationsTemplate
 export const pageQuery = graphql`
   query($id: String!) {
     wordpressWpLocations(id: { eq: $id }) {
+      slug
       title
       content
       better_featured_image {
@@ -129,6 +243,33 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allWordpressWpLeader(sort: { fields: [date] }) {
+      edges {
+        node {
+          title
+          slug
+          better_featured_image {
+            source_url
+          }
+          acf {
+            credentials
+            title
+            primary_location
+            all_locations {
+              post_title
+            }
+            phone
+            email
+            linkdin
+            bio
+            Services
+            industries
+            principal
+            hide_leader
+          }
+        }
       }
     }
   }
