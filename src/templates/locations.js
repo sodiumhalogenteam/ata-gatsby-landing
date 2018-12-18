@@ -35,12 +35,10 @@ class LocationsTemplate extends Component {
 
   handleClose = () => {
     this.setState({ show: -1 })
-    console.log('show:', this.state.show)
   }
 
   handleShow = id => {
     this.setState({ show: id })
-    console.log('id:', id, 'show:', this.state.show)
   }
   render() {
     const data = this.props.data
