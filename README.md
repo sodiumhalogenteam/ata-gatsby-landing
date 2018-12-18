@@ -38,6 +38,44 @@
 
 4. **Before pushing, be sure to run `gatsby build` to make sure you don't push broken code to the repo**
 
+## Querying and Loading Data
+
+1. **Request the API data**
+   Your target site's WP API data should be located at `yoursite.com/wp-json`
+
+   You first need to request the data laid out in the target site's API file. You can do this by going to `gatsby-config.js` and adding the data path for the needed items inside of the `includedRoutes` array.
+   This will grab every item of that type from the site.
+   (See existing paths for an example)
+
+2. **Generate the pages**
+   In order to generate pages from queried info, you first need to create a template. Create your template by adding a new file under the `templates` folder. Name it something like `newtemplate.js`.
+
+   After this, you need to go to the `gatsby-node.js` file and follow the instructions in the comments at the top of the file to query data and generate multiple pages from the template you just created.
+
+3. **Customize your template**
+   In order to request the data inside of the template, you need to query the data inside of it by adding export const pageQuery = `graphql\`...\`` towards the bottom.
+
+   You can request to have all instances of an item by querying as such:
+
+   ```sh
+   query {
+      allWordpressWpLeader(sort: { fields: [date] }) {
+      }
+   }
+   ```
+
+   Or, you can request only the individual item fed to it by querying as such:
+
+   ```sh
+    query($id: String!) {
+        wordpressWpLocations(id: { eq: $id }) {
+        }
+    }
+   ```
+
+   This will only query the single item fed to the template in step 2.
+   From there, query the fields that you need by looking at the API json file and using `graphql` syntax.
+
 ## 🎓 Learning Gatsby
 
 [Gatsby](https://www.gatsbyjs.org/docs/)

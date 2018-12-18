@@ -11,6 +11,7 @@ const containerStyle = {
   padding: rhythm(3 / 4),
 }
 
+// This is a sort of 'header' for the entire site.
 class DefaultLayout extends React.Component {
   render() {
     return (

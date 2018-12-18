@@ -94,13 +94,18 @@ module.exports = {
         // ` will either include or exclude routes ending in `comments` and
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
+        /* 
+          This is where the inital request for API info is called. Without first requesting
+          the items here, the info will not be able to be queried for the rest of the site.
+          -- Adam
+         */
         includedRoutes: [
           // '/*/*/categories',
           // '/*/*/posts',
-          '/*/*/pages',
-          '/*/*/media',
+          // '/*/*/pages',
+          // '/*/*/media',
           // '/*/*/tags',
-          '/*/*/taxonomies',
+          // '/*/*/taxonomies',
           // '/*/*/users',
           '/*/*/leader',
           '/*/*/locations',
