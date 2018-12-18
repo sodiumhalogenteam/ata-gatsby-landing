@@ -16,6 +16,19 @@ class DefaultLayout extends React.Component {
     return (
       <div>
         <link
+          href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic|Source+Sans+Pro:600,400,300,300italic"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <link
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css"
+          rel="stylesheet"
+        />
+        <link
           rel="stylesheet"
           id="sage/css-css"
           href="https://www.atacpa.net/wp-content/themes/ata/dist/styles/main.css"

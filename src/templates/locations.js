@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Layout from '../layouts'
 import styled from 'styled-components'
+import { Modal } from 'react-bootstrap'
 
 const SpecialtiesWrap = styled.div`
   .services-cta {
@@ -10,7 +11,37 @@ const SpecialtiesWrap = styled.div`
   }
 `
 
+const StateWrap = styled.span`
+  text-transform: uppercase;
+`
+
+const LinkBtn = styled.button`
+  border: none;
+  padding: 0;
+  background-color: transparent;
+`
+
 class LocationsTemplate extends Component {
+  constructor(props, context) {
+    super(props, context)
+
+    this.handleShow = this.handleShow.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+
+    this.state = {
+      show: -1,
+    }
+  }
+
+  handleClose = () => {
+    this.setState({ show: -1 })
+    console.log('show:', this.state.show)
+  }
+
+  handleShow = id => {
+    this.setState({ show: id })
+    console.log('id:', id, 'show:', this.state.show)
+  }
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
@@ -44,13 +75,15 @@ class LocationsTemplate extends Component {
               <div className="jumbotron trn v-center">
                 <p>Alexander Thompson Arnold PLLC</p>
                 <h1>
-                  {locations.acf.city}, {locations.acf.state}
+                  {locations.acf.city},{' '}
+                  <StateWrap>{locations.acf.state}</StateWrap>
                 </h1>
                 <div className="row">
                   <div className="col-sm-6">
                     <h4>{locations.acf.address}</h4>
                     <h4>
-                      {locations.acf.city}, {locations.acf.state}{' '}
+                      {locations.acf.city},{' '}
+                      <StateWrap>{locations.acf.state}</StateWrap>{' '}
                       {locations.acf.zip_code}
                     </h4>
                   </div>
@@ -80,22 +113,21 @@ class LocationsTemplate extends Component {
           </div>
         </section>
 
-        <SpecialtiesWrap className="row">
-          <div className="col-md-12">
-            {locations.acf.specialties.map((speciality, i) => (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: locations.acf.specialties[i].post_content,
-                }}
-                key={i}
-              />
-            ))}
-          </div>
+        <SpecialtiesWrap>
+          {locations.acf.specialties.map((speciality, i) => (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: locations.acf.specialties[i].post_content,
+              }}
+              key={i}
+            />
+          ))}
         </SpecialtiesWrap>
         <section className="section-lg team-grid container">
           <div className="row">
             <div className="col-sm-12">
               <iframe
+                title="map"
                 width="100%"
                 height="350"
                 frameBorder="0"
@@ -110,7 +142,8 @@ class LocationsTemplate extends Component {
         <div className="section-lg team-grid container">
           <div className="row">
             <h2 className="leader-title text-center col-sm-12">
-              {locations.acf.city}, {locations.acf.state} Leaders
+              {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
+              Leaders
             </h2>
 
             {leaders.map((leader, i) => (
@@ -120,20 +153,19 @@ class LocationsTemplate extends Component {
                     <div className="hover-content ">
                       <img
                         src={leaders[i].better_featured_image.source_url}
+                        alt="leader"
                         className="img-responsive"
                       />
                       {leaders[i].acf.bio !== '' ? (
                         <div className="content-circle content-center">
                           <ul className="circle-icons icons-list">
                             <li>
-                              <a
-                                href="#"
-                                data-toggle="modal"
-                                data-target={`#bioModal${i}`}
+                              <LinkBtn
                                 title="View Bio"
+                                onClick={() => this.handleShow(i)}
                               >
                                 <i className="fa fa-align-left fa-5x" />
-                              </a>
+                              </LinkBtn>
                             </li>
                           </ul>
                         </div>
@@ -153,7 +185,7 @@ class LocationsTemplate extends Component {
                         <a
                           className="linked-in"
                           style={{ borderBottom: 'none' }}
-                          href={`#bioModal${leaders[i].acf.linkdin}`}
+                          href={leaders[i].acf.linkdin}
                         >
                           <i
                             className="fa fa-linkedin-square fa-2x"
@@ -167,36 +199,39 @@ class LocationsTemplate extends Component {
                 </div>
 
                 {leaders[i].acf.bio !== '' ? (
-                  <div
-                    className="modal fade"
-                    id={`bioModal${i}`}
-                    tabIndex="-1"
-                    role="dialog"
+                  <Modal
+                    show={this.state.show === i}
+                    onHide={() => this.handleClose()}
+                    id={i}
                   >
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header">
-                          <button
-                            type="button"
-                            className="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true"> &times; </span>
-                          </button>
-                          <h4>{leaders[i].title}'s Bio</h4>
-                        </div>
-                        <div className="modal-body">
-                          <img
-                            src={leaders[i].better_featured_image.source_url}
-                            className="img-responsive"
-                          />
-                          <div className="space-sm" />
-                          <p>{leaders[i].acf.bio}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <Modal.Header>
+                      <button
+                        type="button"
+                        className="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                        onClick={() => this.handleClose()}
+                      >
+                        <span aria-hidden="true"> &times; </span>
+                      </button>
+                      <h4>{leaders[i].title}'s Bio</h4>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img
+                        width="150"
+                        height="150"
+                        src={leaders[i].better_featured_image.source_url}
+                        alt="leader"
+                        className="img-responsive"
+                      />
+                      <div className="space-sm" />
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: leaders[i].acf.bio,
+                        }}
+                      />
+                    </Modal.Body>
+                  </Modal>
                 ) : null}
               </div>
             ))}
