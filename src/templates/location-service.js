@@ -30,7 +30,20 @@ class LocationsTemplate extends Component {
 
     this.state = {
       show: -1,
+      service_title: '',
+      service_pos: 0,
     }
+  }
+
+  componentDidMount() {
+    const title = this.props.location.state.service_title
+    this.setState({
+      service_title: title,
+    })
+    const position = this.props.location.state.service_pos
+    this.setState({
+      service_pos: position,
+    })
   }
 
   handleClose = () => {
@@ -72,7 +85,8 @@ class LocationsTemplate extends Component {
                 <p>Alexander Thompson Arnold PLLC</p>
                 <h1>
                   {locations.acf.city},{' '}
-                  <StateWrap>{locations.acf.state}</StateWrap>
+                  <StateWrap>{locations.acf.state}</StateWrap> -{' '}
+                  {this.state.service_title}
                 </h1>
                 <div className="row">
                   <div className="col-sm-6">
@@ -110,14 +124,12 @@ class LocationsTemplate extends Component {
         </section>
 
         <SpecialtiesWrap>
-          {locations.acf.specialties.map(({ post_content }) => (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post_content,
-              }}
-              key={post_content}
-            />
-          ))}
+          <div
+            dangerouslySetInnerHTML={{
+              __html:
+                locations.acf.specialties[this.state.service_pos].post_content,
+            }}
+          />
         </SpecialtiesWrap>
         <section className="section-lg team-grid container">
           <div className="row">
@@ -233,6 +245,7 @@ class LocationsTemplate extends Component {
             ))}
           </div>
         </div>
+        <p>{this.service}</p>
       </Layout>
     )
   }

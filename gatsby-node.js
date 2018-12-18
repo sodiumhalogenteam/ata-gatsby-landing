@@ -41,23 +41,70 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       `
-    ).then(result => {
-      if (result.errors) {
-        console.log(result.errors)
-        reject(result.errors)
-      }
-      const locationsTemplate = path.resolve('./src/templates/locations.js')
-      _.each(result.data.allWordpressWpLocations.edges, edge => {
-        createPage({
-          path: `/${edge.node.slug}/`,
-          component: slash(locationsTemplate),
-          context: {
-            id: edge.node.id,
-          },
+    )
+      .then(result => {
+        if (result.errors) {
+          console.log('gatsby-node', result.errors)
+          reject(result.errors)
+        }
+        const locationsTemplate = path.resolve('./src/templates/locations.js')
+        _.each(result.data.allWordpressWpLocations.edges, edge => {
+          createPage({
+            path: `/${edge.node.slug}/`,
+            component: slash(locationsTemplate),
+            context: {
+              id: edge.node.id,
+            },
+          })
+        })
+        resolve()
+      })
+      // ==== END LOCATIONS ====
+      // ==== LOCATIONS & SERVICES ====
+      .then(() => {
+        graphql(
+          `
+            {
+              allWordpressWpLocations {
+                edges {
+                  node {
+                    id
+                    slug
+                    status
+                    template
+                    acf {
+                      specialties {
+                        post_name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `
+        ).then(result => {
+          if (result.errors) {
+            console.log('gatsby-node', result.errors)
+            reject(result.errors)
+          }
+          const locationsTemplate = path.resolve(
+            './src/templates/location-service.js'
+          )
+          _.each(result.data.allWordpressWpLocations.edges, edge => {
+            _.each(edge.node.acf.specialties, speciality => {
+              createPage({
+                path: `/${edge.node.slug}/${speciality.post_name}/`,
+                component: slash(locationsTemplate),
+                context: {
+                  id: edge.node.id,
+                  service: speciality.post_name,
+                },
+              })
+            })
+          })
+          resolve()
         })
       })
-      resolve()
-    })
-    // ==== END LOCATIONS ====
+    // ==== END LOCATIONS & SERVICES ====
   })
 }

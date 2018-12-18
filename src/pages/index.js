@@ -20,6 +20,26 @@ class Home extends Component {
             </Link>
           </div>
         ))}
+        <br />
+        <h1>Location Services</h1>
+        {data.allWordpressWpLocations.edges.map(({ node }) =>
+          node.acf.specialties.map(({ post_name, post_title }, i) => (
+            <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
+              <Link
+                to={`${node.slug}/${post_name}`}
+                css={{ textDecoration: `none` }}
+                state={{
+                  service_title: post_title,
+                  service_pos: i,
+                }}
+              >
+                <h3>
+                  {node.title} {post_title}
+                </h3>
+              </Link>
+            </div>
+          ))
+        )}
       </Layout>
     )
   }
@@ -35,6 +55,12 @@ export const pageQuery = graphql`
         node {
           title
           slug
+          acf {
+            specialties {
+              post_name
+              post_title
+            }
+          }
         }
       }
     }
