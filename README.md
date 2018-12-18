@@ -53,7 +53,13 @@
    After this, you need to go to the `gatsby-node.js` file and follow the instructions in the comments at the top of the file to query data and generate multiple pages from the template you just created.
 
 3. **Customize your template**
-   In order to request the data inside of the template, you need to query the data inside of it by adding export const pageQuery = `graphql\`...\`` towards the bottom.
+   In order to request the data inside of the template, you need to query the data inside of it by adding
+
+   ```sh
+   export const pageQuery = graphql`...`
+   ```
+
+   towards the bottom.
 
    You can request to have all instances of an item by querying as such:
 
