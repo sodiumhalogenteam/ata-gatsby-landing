@@ -56,7 +56,7 @@
    In order to request the data inside of the template, you need to query the data inside of it by adding
 
    ```sh
-   export const pageQuery = graphql`...`
+   export const pageQuery = graphql`[Add queries here]`
    ```
 
    towards the bottom.
