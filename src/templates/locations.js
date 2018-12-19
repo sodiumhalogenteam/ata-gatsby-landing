@@ -80,6 +80,20 @@ class LocationsTemplate extends Component {
         <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
           <title>ATA CPA</title>
           <meta name="description" content={description} />
+          <meta
+            name="image"
+            content={locations.better_featured_image.source_url}
+          />
+
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          {/* <meta name="twitter:creator" content={seo.social.twitter} /> */}
+          <meta name="twitter:title" content={`ATA CPA | ${title}`} />
+          <meta name="twitter:description" content={description} />
+          <meta
+            name="twitter:image"
+            content={locations.better_featured_image.source_url}
+          />
         </Helmet>
         <section
           className="bg-center bg-cover"
