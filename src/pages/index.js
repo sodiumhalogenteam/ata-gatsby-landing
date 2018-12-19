@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
-
+import Helmet from 'react-helmet'
 import Layout from '../layouts'
 
 import { rhythm } from '../utils/typography'
@@ -12,6 +12,7 @@ class Home extends Component {
 
     return (
       <Layout>
+        <Helmet defaultTitle="ATA CPA" />
         <h1>Locations</h1>
         {data.allWordpressWpLocations.edges.map(({ node }) => (
           <div css={{ marginBottom: rhythm(2) }} key={node.slug}>

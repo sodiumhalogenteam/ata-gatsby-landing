@@ -47,11 +47,17 @@ class LocationsTemplate extends Component {
     const service_title = this.props.pageContext.service
     const title =
       locations.acf.city +
-      ' ' +
+      ', ' +
       locations.acf.state.toUpperCase() +
-      ' - ' +
+      ' ' +
       service_title
-    const description = 'ATA CPA ' + title
+    const description =
+      "ATA CPA's " +
+      locations.acf.city +
+      ', ' +
+      locations.acf.state.toUpperCase() +
+      ' location specializes in ' +
+      service_title
     let leaders = []
     {
       data.allWordpressWpLeader.edges.map(({ node }) =>
@@ -67,6 +73,7 @@ class LocationsTemplate extends Component {
       <Layout>
         <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
           {/* General tags */}
+          <title>ATA CPA</title>
           <meta name="description" content={description} />
           {/* <meta name="image" content={image} /> */}
 

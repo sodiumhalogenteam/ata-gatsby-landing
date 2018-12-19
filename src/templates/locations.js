@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Layout from '../layouts'
 import styled from 'styled-components'
 import { Modal } from 'react-bootstrap'
+import Helmet from 'react-helmet'
 
 const SpecialtiesWrap = styled.div`
   .services-cta {
@@ -43,6 +44,26 @@ class LocationsTemplate extends Component {
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
+    let services = ''
+    let specialtiesLen = locations.acf.specialties.length
+    locations.acf.specialties.map(({ post_title }, i) => {
+      services += post_title
+      if (i === specialtiesLen - 2 && specialtiesLen === 2) {
+        services += ' and '
+      } else if (i === specialtiesLen - 2) {
+        services += ', and '
+      } else if (i !== specialtiesLen - 1) {
+        services += ', '
+      }
+    })
+    const title = locations.acf.city + ', ' + locations.acf.state.toUpperCase()
+    const description =
+      "ATA CPA's " +
+      locations.acf.city +
+      ', ' +
+      locations.acf.state.toUpperCase() +
+      ' location specializes in ' +
+      services
     let leaders = []
     {
       data.allWordpressWpLeader.edges.map(({ node }) =>
@@ -56,6 +77,10 @@ class LocationsTemplate extends Component {
 
     return (
       <Layout>
+        <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
+          <title>ATA CPA</title>
+          <meta name="description" content={description} />
+        </Helmet>
         <section
           className="bg-center bg-cover"
           style={{
