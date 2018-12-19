@@ -75,6 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
                     acf {
                       specialties {
                         post_name
+                        post_title
                       }
                     }
                   }
@@ -91,15 +92,18 @@ exports.createPages = ({ graphql, actions }) => {
             './src/templates/location-service.js'
           )
           _.each(result.data.allWordpressWpLocations.edges, edge => {
+            let i = 0
             _.each(edge.node.acf.specialties, speciality => {
               createPage({
                 path: `/${edge.node.slug}/${speciality.post_name}/`,
                 component: slash(locationsTemplate),
                 context: {
                   id: edge.node.id,
-                  service: speciality.post_name,
+                  service: speciality.post_title,
+                  service_pos: i,
                 },
               })
+              i++
             })
           })
           resolve()

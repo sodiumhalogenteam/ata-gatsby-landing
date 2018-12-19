@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Layout from '../layouts'
 import styled from 'styled-components'
 import { Modal } from 'react-bootstrap'
+import Helmet from 'react-helmet'
 
 const SpecialtiesWrap = styled.div`
   .services-cta {
@@ -30,20 +31,7 @@ class LocationsTemplate extends Component {
 
     this.state = {
       show: -1,
-      service_title: '',
-      service_pos: 0,
     }
-  }
-
-  componentDidMount() {
-    const title = this.props.location.state.service_title
-    this.setState({
-      service_title: title,
-    })
-    const position = this.props.location.state.service_pos
-    this.setState({
-      service_pos: position,
-    })
   }
 
   handleClose = () => {
@@ -56,6 +44,14 @@ class LocationsTemplate extends Component {
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
+    const service_title = this.props.pageContext.service
+    const title =
+      locations.acf.city +
+      ' ' +
+      locations.acf.state.toUpperCase() +
+      ' - ' +
+      service_title
+    const description = 'ATA CPA ' + title
     let leaders = []
     {
       data.allWordpressWpLeader.edges.map(({ node }) =>
@@ -69,6 +65,18 @@ class LocationsTemplate extends Component {
 
     return (
       <Layout>
+        <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
+          {/* General tags */}
+          <meta name="description" content={description} />
+          {/* <meta name="image" content={image} /> */}
+
+          {/* Twitter Card tags */}
+          {/* <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:creator" content={seo.social.twitter} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content={image} /> */}
+        </Helmet>
         <section
           className="bg-center bg-cover"
           style={{
@@ -85,8 +93,7 @@ class LocationsTemplate extends Component {
                 <p>Alexander Thompson Arnold PLLC</p>
                 <h1>
                   {locations.acf.city},{' '}
-                  <StateWrap>{locations.acf.state}</StateWrap> -{' '}
-                  {this.state.service_title}
+                  <StateWrap>{locations.acf.state}</StateWrap> - {service_title}
                 </h1>
                 <div className="row">
                   <div className="col-sm-6">
@@ -127,7 +134,8 @@ class LocationsTemplate extends Component {
           <div
             dangerouslySetInnerHTML={{
               __html:
-                locations.acf.specialties[this.state.service_pos].post_content,
+                locations.acf.specialties[this.props.pageContext.service_pos]
+                  .post_content,
             }}
           />
         </SpecialtiesWrap>
