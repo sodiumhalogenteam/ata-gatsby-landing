@@ -45,19 +45,12 @@ class LocationsTemplate extends Component {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
     const service_title = this.props.pageContext.service
-    const title =
-      locations.acf.city +
-      ', ' +
-      locations.acf.state.toUpperCase() +
-      ' ' +
-      service_title
-    const description =
-      "ATA CPA's " +
-      locations.acf.city +
-      ', ' +
-      locations.acf.state.toUpperCase() +
-      ' location specializes in ' +
-      service_title
+    const title = `${
+      locations.acf.city
+    }, ${locations.acf.state.toUpperCase()} ${service_title}`
+    const description = `ATA CPA's ${
+      locations.acf.city
+    }, ${locations.acf.state.toUpperCase()} location specializes in ${service_title}`
     let leaders = []
     data.allWordpressWpLeader.edges.map(({ node }) =>
       node.acf.all_locations

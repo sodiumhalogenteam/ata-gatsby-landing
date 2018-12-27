@@ -50,6 +50,7 @@ const NavLi = styled.li`
   }
 `
 
+// The navbar for the entire site
 class Navbar extends React.Component {
   constructor(props, context) {
     super(props, context)
@@ -69,6 +70,10 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.listenScrollEvent)
   }
 
   render() {
@@ -134,7 +139,7 @@ class Navbar extends React.Component {
                               title={title}
                               href={url}
                             >
-                              {title}
+                              {title.replace('#038;', '')}
                             </NavMenuItem>
                           )
                         )}

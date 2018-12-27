@@ -15,33 +15,43 @@ class Home extends Component {
         <Helmet defaultTitle="ATA CPA">
           <meta name="robots" content="noindex" />
         </Helmet>
-        <h1>Locations</h1>
-        {data.allWordpressWpLocations.edges.map(({ node }) => (
-          <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
-            <Link to={node.slug} css={{ textDecoration: `none` }}>
-              <h3>{node.title}</h3>
-            </Link>
-          </div>
-        ))}
-        <br />
-        <h1>Location Services</h1>
-        {data.allWordpressWpLocations.edges.map(({ node }) =>
-          node.acf.specialties.map(({ post_name, post_title }) => (
-            <div
-              css={{ marginBottom: rhythm(2) }}
-              key={`${node.slug}-${post_name}`}
-            >
-              <Link
-                to={`${node.slug}/${post_name}`}
-                css={{ textDecoration: `none` }}
-              >
-                <h3>
-                  {node.title} {post_title}
-                </h3>
+        <div
+          style={{
+            paddingTop: '80px',
+            paddingBottom: '80px',
+            paddingLeft: '60px',
+            backgroundColor: '#222',
+            color: '#fff',
+          }}
+        >
+          <h1>Locations</h1>
+          {data.allWordpressWpLocations.edges.map(({ node }) => (
+            <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
+              <Link to={node.slug} css={{ textDecoration: `none` }}>
+                <h3>{node.title}</h3>
               </Link>
             </div>
-          ))
-        )}
+          ))}
+          <br />
+          <h1>Location Services</h1>
+          {data.allWordpressWpLocations.edges.map(({ node }) =>
+            node.acf.specialties.map(({ post_name, post_title }) => (
+              <div
+                css={{ marginBottom: rhythm(2) }}
+                key={`${node.slug}-${post_name}`}
+              >
+                <Link
+                  to={`${node.slug}/${post_name}`}
+                  css={{ textDecoration: `none` }}
+                >
+                  <h3>
+                    {node.title} {post_title}
+                  </h3>
+                </Link>
+              </div>
+            ))
+          )}
+        </div>
       </Layout>
     )
   }

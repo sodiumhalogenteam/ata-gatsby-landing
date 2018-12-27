@@ -57,14 +57,10 @@ class LocationsTemplate extends Component {
       }
       return 1
     })
-    const title = locations.acf.city + ', ' + locations.acf.state.toUpperCase()
-    const description =
-      "ATA CPA's " +
-      locations.acf.city +
-      ', ' +
-      locations.acf.state.toUpperCase() +
-      ' location specializes in ' +
-      services
+    const title = `${locations.acf.city}, ${locations.acf.state.toUpperCase()}`
+    const description = `ATA CPA's ${
+      locations.acf.city
+    }, ${locations.acf.state.toUpperCase()} location specializes in ${services}`
     let leaders = []
     data.allWordpressWpLeader.edges.map(({ node }) =>
       node.acf.all_locations

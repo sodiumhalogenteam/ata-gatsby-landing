@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Navbar from './navbar'
 
-// This is a sort of 'header' for the entire site.
+// this component just queries the WP navbar, since layouts in gatsby must query statically
 export default () => (
   <StaticQuery
     query={graphql`
