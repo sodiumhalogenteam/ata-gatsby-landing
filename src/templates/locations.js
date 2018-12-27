@@ -55,6 +55,7 @@ class LocationsTemplate extends Component {
       } else if (i !== specialtiesLen - 1) {
         services += ', '
       }
+      return 1
     })
     const title = locations.acf.city + ', ' + locations.acf.state.toUpperCase()
     const description =
@@ -65,15 +66,13 @@ class LocationsTemplate extends Component {
       ' location specializes in ' +
       services
     let leaders = []
-    {
-      data.allWordpressWpLeader.edges.map(({ node }) =>
-        node.acf.all_locations
-          ? node.acf.all_locations.map(({ post_title }) =>
-              post_title === locations.title ? leaders.push(node) : null
-            )
-          : null
-      )
-    }
+    data.allWordpressWpLeader.edges.map(({ node }) =>
+      node.acf.all_locations
+        ? node.acf.all_locations.map(({ post_title }) =>
+            post_title === locations.title ? leaders.push(node) : null
+          )
+        : null
+    )
 
     return (
       <Layout>

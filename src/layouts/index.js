@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import '../components/bootstrap.min.css'
+import Header from '../components/header.js'
 
 const containerStyle = {
   maxWidth: 700,
@@ -39,43 +39,7 @@ class DefaultLayout extends React.Component {
             media="all"
           />
         </Helmet>
-        <div
-          css={{
-            background: `rgb(207, 58, 62)`,
-            marginBottom: rhythm(1),
-            padding: `${rhythm(1)} 0px`,
-            '@media screen and (min-width: 500px)': {
-              padding: `${rhythm(2)} 0px`,
-            },
-          }}
-        >
-          <div css={containerStyle}>
-            <h1
-              css={{
-                margin: 0,
-                fontSize: scale(1.5).fontSize,
-                lineHeight: 1,
-                '@media screen and (min-width: 500px)': {
-                  fontSize: scale(1.9).fontSize,
-                  lineHeight: 1,
-                },
-              }}
-            >
-              <Link
-                css={{
-                  color: `rgb(224,203,144)`,
-                  ':hover': {
-                    color: `rgb(224,203,144)`,
-                    textDecoration: `none`,
-                  },
-                }}
-                to="/"
-              >
-                ATA
-              </Link>
-            </h1>
-          </div>
-        </div>
+        <Header />
         <div css={containerStyle}>{this.props.children}</div>
       </div>
     )
@@ -83,7 +47,7 @@ class DefaultLayout extends React.Component {
 }
 
 DefaultLayout.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
 }
 
 export default DefaultLayout

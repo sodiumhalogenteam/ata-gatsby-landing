@@ -12,7 +12,9 @@ class Home extends Component {
 
     return (
       <Layout>
-        <Helmet defaultTitle="ATA CPA" />
+        <Helmet defaultTitle="ATA CPA">
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <h1>Locations</h1>
         {data.allWordpressWpLocations.edges.map(({ node }) => (
           <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
@@ -25,7 +27,10 @@ class Home extends Component {
         <h1>Location Services</h1>
         {data.allWordpressWpLocations.edges.map(({ node }) =>
           node.acf.specialties.map(({ post_name, post_title }) => (
-            <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
+            <div
+              css={{ marginBottom: rhythm(2) }}
+              key={`${node.slug}-${post_name}`}
+            >
               <Link
                 to={`${node.slug}/${post_name}`}
                 css={{ textDecoration: `none` }}

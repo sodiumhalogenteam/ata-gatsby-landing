@@ -1,10 +1,8 @@
 ## Quick Setup
 
 1. download this project, then cd into it
-2. run `npm install --global gatsby-cli`
-3. run `npm install -g now`
-4. run `npm install --save gatsby-source-wordpress`
-5. run `npm install`
+2. run `npm install --global gatsby-cli` (if you don't already have it)
+3. run `yarn install`
 
 ## Development and Testing
 
@@ -29,12 +27,7 @@
    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 3. **Generate Live Temp Site.**
-
-   ```sh
-   now
-   ```
-
-   You should recieve a temporary url to test with after this
+   The live site is generated through netlify
 
 4. **Before pushing, be sure to run `gatsby build` to make sure you don't push broken code to the repo**
 
@@ -87,5 +80,3 @@
 [Gatsby](https://www.gatsbyjs.org/docs/)
 
 [Gatsby + Wordpress](https://www.gatsbyjs.org/packages/gatsby-source-wordpress/)
-
-[Gatsby + Now](https://www.gatsbyjs.org/docs/deploying-to-now/)
