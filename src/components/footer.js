@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import TopNav from './topNav'
+import BottomNav from './bottomNav'
 
 // this component just queries the WP navbar, since layouts in gatsby must query statically
 export default () => (
@@ -26,8 +26,8 @@ export default () => (
       }
     `}
     render={data => (
-      <TopNav
-        items={data.allWordpressWpApiMenusMenusItems.edges[1].node.items}
+      <BottomNav
+        items={data.allWordpressWpApiMenusMenusItems.edges[0].node.items}
       />
     )}
   />

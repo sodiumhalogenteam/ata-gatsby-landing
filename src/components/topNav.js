@@ -51,7 +51,7 @@ const NavLi = styled.li`
 `
 
 // The navbar for the entire site
-class Navbar extends React.Component {
+class TopNav extends React.Component {
   constructor(props, context) {
     super(props, context)
 
@@ -166,8 +166,8 @@ class Navbar extends React.Component {
   }
 }
 
-Navbar.propTypes = {
+TopNav.propTypes = {
   items: oneOfType([array, object]).isRequired,
 }
 
-export default Navbar
+export default TopNav

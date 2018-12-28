@@ -4,7 +4,8 @@ import Helmet from 'react-helmet'
 
 import { rhythm } from '../utils/typography'
 import '../components/bootstrap.min.css'
-import Header from '../components/header.js'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const containerStyle = {
   maxWidth: 700,
@@ -14,6 +15,39 @@ const containerStyle = {
 
 // This is a sort of 'wrapper' for the entire site which can contain the header, footer, and any links or scripts
 class DefaultLayout extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+
+    this.equalheight = this.equalheight.bind(this)
+  }
+
+  equalheight(container) {
+    var tallest = 0,
+      eqlArr = []
+    var containerArr = document.getElementsByClassName(container)
+    for (var i = 0; i < containerArr.length; i++) {
+      eqlArr[i] = containerArr[i].getElementsByClassName('eql')
+    }
+    for (var j = 0; j < eqlArr.length; j++) {
+      for (var k = 0; k < eqlArr[j].length; k++) {
+        eqlArr[j][k].style.height = 'auto'
+        // console.log('height', eqlArr[j][k].offsetHeight)
+        // console.log('item', eqlArr[j][k])
+        if (eqlArr[j][k].offsetHeight > tallest) {
+          tallest = eqlArr[j][k].offsetHeight
+          // console.log('tallest', tallest)
+        }
+      }
+      for (var m = 0; m < eqlArr[j].length; m++) {
+        eqlArr[j][m].style.height = tallest
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.equalheight('services-list')
+  }
+
   render() {
     return (
       <div>
@@ -41,6 +75,7 @@ class DefaultLayout extends React.Component {
         </Helmet>
         <Header />
         <div css={containerStyle}>{this.props.children}</div>
+        <Footer />
       </div>
     )
   }
