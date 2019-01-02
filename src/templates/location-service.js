@@ -22,6 +22,17 @@ const LinkBtn = styled.button`
   background-color: transparent;
 `
 
+const CenterRow = styled.div`
+  text-align: center;
+`
+
+const CenterCol = styled.div`
+  display: inline-block;
+  float: none !important;
+  text-align: left;
+  margin-right: -4px;
+`
+
 class LocationsTemplate extends Component {
   constructor(props, context) {
     super(props, context)
@@ -165,57 +176,57 @@ class LocationsTemplate extends Component {
               {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
               Leaders
             </h2>
+          </div>
 
+          <CenterRow className="row">
             {leaders.map((leader, i) => (
-              <div key={i}>
-                <div className="col-lg-3 col-md-3 col-sm-6 staff">
-                  <div className="profile-circle">
-                    <div className="hover-content ">
-                      <img
-                        src={leaders[i].better_featured_image.source_url}
-                        alt="leader"
-                        className="img-responsive"
-                      />
-                      {leaders[i].acf.bio !== '' ? (
-                        <div className="content-circle content-center">
-                          <ul className="circle-icons icons-list">
-                            <li>
-                              <LinkBtn
-                                title="View Bio"
-                                onClick={() => this.handleShow(i)}
-                              >
-                                <i className="fa fa-align-left fa-5x" />
-                              </LinkBtn>
-                            </li>
-                          </ul>
-                        </div>
-                      ) : null}
-                    </div>
-                    <h4>
-                      {leaders[i].title},<br />
-                      <em>{leaders[i].acf.credentials}</em>
-                      <small>{leaders[i].acf.title}</small>
-                    </h4>
-                    <p>
-                      <a href={`tel:${leaders[i].acf.phone}`}>
-                        {leaders[i].acf.phone}
-                      </a>
-                      <br />
-                      {leaders[i].acf.linkdin !== '' ? (
-                        <a
-                          className="linked-in"
-                          style={{ borderBottom: 'none' }}
-                          href={leaders[i].acf.linkdin}
-                        >
-                          <i
-                            className="fa fa-linkedin-square fa-2x"
-                            aria-hidden="true"
-                          />
-                        </a>
-                      ) : null}
-                      <br />
-                    </p>
+              <CenterCol className="col-lg-3 col-md-3 col-sm-6 staff" key={i}>
+                <div className="profile-circle">
+                  <div className="hover-content ">
+                    <img
+                      src={leaders[i].better_featured_image.source_url}
+                      alt="leader"
+                      className="img-responsive"
+                    />
+                    {leaders[i].acf.bio !== '' ? (
+                      <div className="content-circle content-center">
+                        <ul className="circle-icons icons-list">
+                          <li>
+                            <LinkBtn
+                              title="View Bio"
+                              onClick={() => this.handleShow(i)}
+                            >
+                              <i className="fa fa-align-left fa-5x" />
+                            </LinkBtn>
+                          </li>
+                        </ul>
+                      </div>
+                    ) : null}
                   </div>
+                  <h4>
+                    {leaders[i].title},<br />
+                    <em>{leaders[i].acf.credentials}</em>
+                    <small>{leaders[i].acf.title}</small>
+                  </h4>
+                  <p>
+                    <a href={`tel:${leaders[i].acf.phone}`}>
+                      {leaders[i].acf.phone}
+                    </a>
+                    <br />
+                    {leaders[i].acf.linkdin !== '' ? (
+                      <a
+                        className="linked-in"
+                        style={{ borderBottom: 'none' }}
+                        href={leaders[i].acf.linkdin}
+                      >
+                        <i
+                          className="fa fa-linkedin-square fa-2x"
+                          aria-hidden="true"
+                        />
+                      </a>
+                    ) : null}
+                    <br />
+                  </p>
                 </div>
 
                 {leaders[i].acf.bio !== '' ? (
@@ -253,9 +264,9 @@ class LocationsTemplate extends Component {
                     </Modal.Body>
                   </Modal>
                 ) : null}
-              </div>
+              </CenterCol>
             ))}
-          </div>
+          </CenterRow>
         </div>
         <p>{this.service}</p>
       </Layout>
