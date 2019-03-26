@@ -77,6 +77,10 @@ exports.createPages = ({ graphql, actions }) => {
                         post_name
                         post_title
                       }
+                      who_we_serve {
+                        post_name
+                        post_title
+                      }
                     }
                   }
                 }
@@ -100,6 +104,21 @@ exports.createPages = ({ graphql, actions }) => {
                 context: {
                   id: edge.node.id,
                   service: speciality.post_title,
+                  service_pos: i,
+                },
+              })
+              i++
+            })
+          })
+          _.each(result.data.allWordpressWpLocations.edges, edge => {
+            let i = 0
+            _.each(edge.node.acf.who_we_serve, whoserve => {
+              createPage({
+                path: `/${edge.node.slug}/${whoserve.post_name}/`,
+                component: slash(locationsTemplate),
+                context: {
+                  id: edge.node.id,
+                  service: whoserve.post_title,
                   service_pos: i,
                 },
               })

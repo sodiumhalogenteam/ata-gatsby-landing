@@ -33,6 +33,15 @@ const CenterCol = styled.div`
   margin-right: -4px;
 `
 
+const ServcieBlock = styled.a`
+  background: #364458;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+`
+
 class LocationsTemplate extends Component {
   constructor(props, context) {
     super(props, context)
@@ -52,6 +61,21 @@ class LocationsTemplate extends Component {
   handleShow = id => {
     this.setState({ show: id })
   }
+
+  componentDidMount() {
+    var heightsArr = []
+    var heights = document.getElementsByClassName('.services-list')
+    let i
+    for (i = 0; i < heights.length; i++) {
+      heightsArr.push(heights[i].style.height)
+    }
+    var maxHeight = Math.max.apply(null, heights)
+
+    for (i = 0; i < heights.length; i++) {
+      heights[i].style.height = maxHeight
+    }
+  }
+
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
@@ -80,6 +104,149 @@ class LocationsTemplate extends Component {
           )
         : null
     )
+
+    // add services to rows
+    let serviceRows = []
+    for (let i = 0; i < specialtiesLen; i += 3) {
+      let j = i + 1
+      let k = i + 2
+      if (j < specialtiesLen && k < specialtiesLen) {
+        serviceRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.specialties[i].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[j].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.specialties[j].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[k].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.specialties[k].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      } else if (j < specialtiesLen && k > specialtiesLen) {
+        serviceRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.specialties[i].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[j].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.specialties[j].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      } else {
+        serviceRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.specialties[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.specialties[i].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      }
+    }
+
+    // who we serve rows
+    let whoServeRows = []
+    let whoServeLen = locations.acf.who_we_serve.length
+    for (let i = 0; i < whoServeLen; i += 3) {
+      let j = i + 1
+      let k = i + 2
+      if (j < whoServeLen && k < whoServeLen) {
+        whoServeRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[j].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[j].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[k].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[k].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      } else if (j < whoServeLen && k > whoServeLen) {
+        whoServeRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            </ServcieBlock>
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[j].post_name
+              }`}
+              className="col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[j].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      } else {
+        whoServeRows.push(
+          <SpecialtiesWrap className="row">
+            <ServcieBlock
+              href={`${locations.slug}/${
+                locations.acf.who_we_serve[i].post_name
+              }`}
+              className="col-md-offset-1 col-md-3"
+            >
+              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            </ServcieBlock>
+          </SpecialtiesWrap>
+        )
+      }
+    }
 
     return (
       <Layout>
@@ -154,16 +321,21 @@ class LocationsTemplate extends Component {
           </div>
         </section>
 
-        <SpecialtiesWrap>
-          {locations.acf.specialties.map(({ post_content }) => (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post_content,
-              }}
-              key={post_content}
-            />
-          ))}
-        </SpecialtiesWrap>
+        <div className="container">
+          <h2>
+            {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
+            Services
+          </h2>
+          {serviceRows}
+        </div>
+        <div className="container">
+          <h2>
+            Who {locations.acf.city},{' '}
+            <StateWrap>{locations.acf.state}</StateWrap> Serves
+          </h2>
+          {whoServeRows}
+        </div>
+
         <section className="section-lg team-grid container">
           <div className="row">
             <div className="col-sm-12">
@@ -313,6 +485,11 @@ export const pageQuery = graphql`
         specialties {
           post_title
           post_content
+          post_name
+        }
+        who_we_serve {
+          post_name
+          post_title
         }
       }
     }
