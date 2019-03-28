@@ -7,8 +7,20 @@ import { Modal } from 'react-bootstrap'
 import Helmet from 'react-helmet'
 
 const SpecialtiesWrap = styled.div`
-  .services-cta {
-    display: none;
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .half-half {
+    .row {
+      justify-content: space-between;
+      display: flex;
+      div {
+        flex: 1;
+      }
+    }
   }
 `
 
@@ -56,6 +68,7 @@ class LocationsTemplate extends Component {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
     const service_title = this.props.pageContext.service
+    const service_content = this.props.pageContext.service_content
     const title = `${
       locations.acf.city
     }, ${locations.acf.state.toUpperCase()} ${service_title}`
@@ -148,9 +161,7 @@ class LocationsTemplate extends Component {
         <SpecialtiesWrap>
           <div
             dangerouslySetInnerHTML={{
-              __html:
-                locations.acf.specialties[this.props.pageContext.service_pos]
-                  .post_content,
+              __html: service_content,
             }}
           />
         </SpecialtiesWrap>
@@ -283,6 +294,12 @@ export default LocationsTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
+    sitePage {
+      context {
+        service
+        service_content
+      }
+    }
     wordpressWpLocations(id: { eq: $id }) {
       slug
       title

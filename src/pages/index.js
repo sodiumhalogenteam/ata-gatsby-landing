@@ -32,25 +32,6 @@ class Home extends Component {
               </Link>
             </div>
           ))}
-          <br />
-          <h1>Location Services</h1>
-          {data.allWordpressWpLocations.edges.map(({ node }) =>
-            node.acf.specialties.map(({ post_name, post_title }) => (
-              <div
-                css={{ marginBottom: rhythm(2) }}
-                key={`${node.slug}-${post_name}`}
-              >
-                <Link
-                  to={`${node.slug}/${post_name}`}
-                  css={{ textDecoration: `none` }}
-                >
-                  <h3>
-                    {node.title} {post_title}
-                  </h3>
-                </Link>
-              </div>
-            ))
-          )}
         </div>
       </Layout>
     )
