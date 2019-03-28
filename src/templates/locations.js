@@ -62,20 +62,6 @@ class LocationsTemplate extends Component {
     this.setState({ show: id })
   }
 
-  componentDidMount() {
-    var heightsArr = []
-    var heights = document.getElementsByClassName('.services-list')
-    let i
-    for (i = 0; i < heights.length; i++) {
-      heightsArr.push(heights[i].style.height)
-    }
-    var maxHeight = Math.max.apply(null, heights)
-
-    for (i = 0; i < heights.length; i++) {
-      heights[i].style.height = maxHeight
-    }
-  }
-
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
