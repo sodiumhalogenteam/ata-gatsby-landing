@@ -314,17 +314,21 @@ class LocationsTemplate extends Component {
         </section>
 
         <div className="container">
-          <h2>
-            {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
-            Services
-          </h2>
+          <div className="row">
+            <h2 className="col-md-offset-1">
+              {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
+              Services
+            </h2>
+          </div>
           {serviceRows}
         </div>
         <div className="container">
-          <h2>
-            Who {locations.acf.city},{' '}
-            <StateWrap>{locations.acf.state}</StateWrap> Serves
-          </h2>
+          <div className="row">
+            <h2 className="col-md-offset-1">
+              Who {locations.acf.city},{' '}
+              <StateWrap>{locations.acf.state}</StateWrap> Serves
+            </h2>
+          </div>
           {whoServeRows}
         </div>
 
