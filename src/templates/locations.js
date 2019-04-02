@@ -34,16 +34,18 @@ const CenterCol = styled.div`
 `
 
 const ServcieBlock = styled.div`
-  a {
-    color: #fff;
-  }
   background: #364458;
   color: #fff;
   padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
-  margin: 10px;
   border-radius: 5px;
   border: 2px solid #364458;
+  a {
+    color: #fff;
+  }
   &:hover {
     color: #364458;
     background: #fff;
