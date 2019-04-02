@@ -40,6 +40,12 @@ const ServcieBlock = styled.a`
   text-align: center;
   margin: 10px;
   border-radius: 5px;
+  border: 2px solid #364458;
+  &:hover {
+    color: #364458;
+    background: #fff;
+    border: 2px solid #364458;
+  }
 `
 
 class LocationsTemplate extends Component {

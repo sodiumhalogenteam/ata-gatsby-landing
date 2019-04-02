@@ -64,6 +64,17 @@ class LocationsTemplate extends Component {
   handleShow = id => {
     this.setState({ show: id })
   }
+
+  componentDidMount() {
+    // update contact modal link, since we aren't able to port over native modal correctly
+    let clink = document.getElementById('cmodal')
+    if (clink) clink.setAttribute('href', 'https://www.atacpa.net/contact-us/')
+
+    // fix regular link
+    let glink = document.getElementById('glink')
+    if (glink) glink.setAttribute('href', 'https://www.atacpa.net/ata-offices/')
+  }
+
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
