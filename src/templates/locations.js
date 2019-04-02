@@ -115,7 +115,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[i].post_name
                 }`}
               >
@@ -124,7 +124,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[j].post_name
                 }`}
               >
@@ -133,7 +133,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[k].post_name
                 }`}
               >
@@ -147,7 +147,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[i].post_name
                 }`}
               >
@@ -156,7 +156,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[j].post_name
                 }`}
               >
@@ -170,7 +170,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.specialties[i].post_name
                 }`}
               >
@@ -193,7 +193,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[i].post_name
                 }`}
               >
@@ -202,7 +202,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[j].post_name
                 }`}
               >
@@ -211,7 +211,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[k].post_name
                 }`}
               >
@@ -225,7 +225,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[i].post_name
                 }`}
                 className="col-md-offset-1 col-md-3"
@@ -235,7 +235,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[j].post_name
                 }`}
                 className="col-md-3"
@@ -250,7 +250,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row">
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`${locations.slug}/${
+                href={`../${locations.slug}/${
                   locations.acf.who_we_serve[i].post_name
                 }`}
               >
