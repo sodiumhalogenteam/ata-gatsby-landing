@@ -33,7 +33,10 @@ const CenterCol = styled.div`
   margin-right: -4px;
 `
 
-const ServcieBlock = styled.a`
+const ServcieBlock = styled.div`
+  a {
+    color: #fff;
+  }
   background: #364458;
   color: #fff;
   padding: 20px;
@@ -45,6 +48,9 @@ const ServcieBlock = styled.a`
     color: #364458;
     background: #fff;
     border: 2px solid #364458;
+    a {
+      color: #364458;
+    }
   }
 `
 
@@ -105,63 +111,69 @@ class LocationsTemplate extends Component {
       if (j < specialtiesLen && k < specialtiesLen) {
         serviceRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.specialties[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[i].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[i].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[j].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.specialties[j].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[j].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[j].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[k].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.specialties[k].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[k].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[k].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
       } else if (j < specialtiesLen && k > specialtiesLen) {
         serviceRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.specialties[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[i].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[i].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[j].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.specialties[j].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[j].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[j].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
       } else {
         serviceRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.specialties[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.specialties[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.specialties[i].post_name
+                }`}
+              >
+                <div>{locations.acf.specialties[i].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
@@ -177,63 +189,71 @@ class LocationsTemplate extends Component {
       if (j < whoServeLen && k < whoServeLen) {
         whoServeRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[i].post_name
+                }`}
+              >
+                <div>{locations.acf.who_we_serve[i].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[j].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[j].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[j].post_name
+                }`}
+              >
+                <div>{locations.acf.who_we_serve[j].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[k].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[k].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[k].post_name
+                }`}
+              >
+                <div>{locations.acf.who_we_serve[k].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
       } else if (j < whoServeLen && k > whoServeLen) {
         whoServeRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[i].post_name
+                }`}
+                className="col-md-offset-1 col-md-3"
+              >
+                <div>{locations.acf.who_we_serve[i].post_title}</div>
+              </a>
             </ServcieBlock>
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[j].post_name
-              }`}
-              className="col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[j].post_title}</div>
+            <ServcieBlock className="col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[j].post_name
+                }`}
+                className="col-md-3"
+              >
+                <div>{locations.acf.who_we_serve[j].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
       } else {
         whoServeRows.push(
           <SpecialtiesWrap className="row">
-            <ServcieBlock
-              href={`${locations.slug}/${
-                locations.acf.who_we_serve[i].post_name
-              }`}
-              className="col-md-offset-1 col-md-3"
-            >
-              <div>{locations.acf.who_we_serve[i].post_title}</div>
+            <ServcieBlock className="col-md-offset-1 col-md-3">
+              <a
+                href={`${locations.slug}/${
+                  locations.acf.who_we_serve[i].post_name
+                }`}
+              >
+                <div>{locations.acf.who_we_serve[i].post_title}</div>
+              </a>
             </ServcieBlock>
           </SpecialtiesWrap>
         )
