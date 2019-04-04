@@ -36,7 +36,7 @@ const CenterCol = styled.div`
 const ServcieBlock = styled.div`
   background: #364458;
   color: #fff;
-  padding: 20px;
+  padding: 0 !important;
   margin-right: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -45,6 +45,8 @@ const ServcieBlock = styled.div`
   border: 2px solid #364458;
   a {
     color: #fff;
+    padding: 20px;
+    display: block;
   }
   &:hover {
     color: #364458;
