@@ -12,6 +12,14 @@ const SpecialtiesWrap = styled.div`
   }
 `
 
+const Services = styled.div`
+  padding: 50px 0;
+`
+
+const ServiceRow = styled.div`
+  padding-bottom: 20px;
+`
+
 const StateWrap = styled.span`
   text-transform: uppercase;
 `
@@ -337,39 +345,47 @@ class LocationsTemplate extends Component {
           </div>
         </section>
 
-        <div className="container">
-          <div className="row">
-            <h2 className="col-md-offset-1">
-              {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
-              Services
+        <section class="bg-grey section-lg">
+          <div class="container">
+            <h2 class="text-center col-md-8 col-md-offset-2 md-title text-primary">
+              {locations.acf.office_description}
             </h2>
           </div>
-          {serviceRows}
-        </div>
-        <div className="container">
-          <div className="row">
-            <h2 className="col-md-offset-1">
-              Who {locations.acf.city},{' '}
-              <StateWrap>{locations.acf.state}</StateWrap> Serves
-            </h2>
-          </div>
-          {whoServeRows}
-        </div>
+        </section>
 
-        <section className="section-lg team-grid container">
-          <div className="row">
-            <div className="col-sm-12">
-              <iframe
-                title="map"
-                width="100%"
-                height="350"
-                frameBorder="0"
-                style={{ border: 0 }}
-                src={locations.acf.google_map_iframe_link}
-                allowFullScreen
-              />
+        <Services>
+          <ServiceRow className="container">
+            <div className="row">
+              <h2 className="col-md-offset-1">
+                {locations.acf.city},{' '}
+                <StateWrap>{locations.acf.state}</StateWrap> Services
+              </h2>
             </div>
-          </div>
+            {serviceRows}
+          </ServiceRow>
+          <ServiceRow className="container">
+            <div className="row">
+              <h2 className="col-md-offset-1">
+                Who {locations.acf.city},{' '}
+                <StateWrap>{locations.acf.state}</StateWrap> Serves
+              </h2>
+            </div>
+            {whoServeRows}
+          </ServiceRow>
+        </Services>
+
+        <section class="bg-grey section text-center services-cta">
+          <h2 class="big-title">
+            Let our experts in the {locations.acf.city} area help your business
+          </h2>
+          <div class="space-md" />
+          <a
+            id="cmodal"
+            class="btn btn-primary btn-xlg"
+            href="https://atacpa.net/contact-us/"
+          >
+            Contact an expert today
+          </a>
         </section>
 
         <div className="section-lg team-grid container">
@@ -469,6 +485,22 @@ class LocationsTemplate extends Component {
               </CenterCol>
             ))}
           </CenterRow>
+
+          <section className="team-grid container">
+            <div className="row">
+              <div className="col-sm-12">
+                <iframe
+                  title="map"
+                  width="100%"
+                  height="350"
+                  frameBorder="0"
+                  style={{ border: 0 }}
+                  src={locations.acf.google_map_iframe_link}
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </section>
         </div>
       </Layout>
     )
@@ -498,6 +530,7 @@ export const pageQuery = graphql`
         zip_code
         phone
         fax
+        office_description
         landing_page_select
         meta_description
         meta_keywords

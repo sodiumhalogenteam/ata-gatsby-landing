@@ -13,6 +13,11 @@ const SpecialtiesWrap = styled.div`
     margin-bottom: 0;
   }
 
+  .services-cta,
+  .half-half {
+    display: none;
+  }
+
   .half-half {
     .row {
       justify-content: space-between;
@@ -21,6 +26,10 @@ const SpecialtiesWrap = styled.div`
         flex: 1;
       }
     }
+  }
+
+  #glink {
+    display: none;
   }
 `
 
@@ -176,20 +185,20 @@ class LocationsTemplate extends Component {
             }}
           />
         </SpecialtiesWrap>
-        <section className="section-lg team-grid container">
-          <div className="row">
-            <div className="col-sm-12">
-              <iframe
-                title="map"
-                width="100%"
-                height="350"
-                frameBorder="0"
-                style={{ border: 0 }}
-                src={locations.acf.google_map_iframe_link}
-                allowFullScreen
-              />
-            </div>
-          </div>
+
+        <section class="bg-grey section text-center services-cta">
+          <h2 class="big-title">
+            Let our {service_title} experts in {locations.acf.city} help your
+            business
+          </h2>
+          <div class="space-md" />
+          <a
+            id="cmodal"
+            class="btn btn-primary btn-xlg"
+            href="https://atacpa.net/contact-us/"
+          >
+            Contact an expert today
+          </a>
         </section>
 
         <div className="section-lg team-grid container">
@@ -289,6 +298,22 @@ class LocationsTemplate extends Component {
               </CenterCol>
             ))}
           </CenterRow>
+
+          <section className="team-grid container">
+            <div className="row">
+              <div className="col-sm-12">
+                <iframe
+                  title="map"
+                  width="100%"
+                  height="350"
+                  frameBorder="0"
+                  style={{ border: 0 }}
+                  src={locations.acf.google_map_iframe_link}
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </section>
         </div>
         <p>{this.service}</p>
       </Layout>
