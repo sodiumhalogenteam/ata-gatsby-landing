@@ -94,7 +94,7 @@ exports.createPages = ({ graphql, actions }) => {
             console.log('gatsby-node', result.errors)
             reject(result.errors)
           }
-          const locationsTemplate = path.resolve(
+          const locationServiceTemplate = path.resolve(
             './src/templates/location-service.js'
           )
           _.each(result.data.allWordpressWpLocations.edges, edge => {
@@ -102,7 +102,7 @@ exports.createPages = ({ graphql, actions }) => {
             _.each(edge.node.acf.specialties, speciality => {
               createPage({
                 path: `/${edge.node.slug}/${speciality.post_name}/`,
-                component: slash(locationsTemplate),
+                component: slash(locationServiceTemplate),
                 context: {
                   id: edge.node.id,
                   service: speciality.post_title,
@@ -115,7 +115,7 @@ exports.createPages = ({ graphql, actions }) => {
             _.each(edge.node.acf.who_we_serve, whoserve => {
               createPage({
                 path: `/${edge.node.slug}/${whoserve.post_name}/`,
-                component: slash(locationsTemplate),
+                component: slash(locationServiceTemplate),
                 context: {
                   id: edge.node.id,
                   service: whoserve.post_title,

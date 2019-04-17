@@ -54,7 +54,7 @@ const CenterCol = styled.div`
   margin-right: -4px;
 `
 
-class LocationsTemplate extends Component {
+class LocationServiceTemplate extends Component {
   constructor(props, context) {
     super(props, context)
 
@@ -321,12 +321,12 @@ class LocationsTemplate extends Component {
   }
 }
 
-LocationsTemplate.propTypes = {
+LocationServiceTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   edges: PropTypes.array,
 }
 
-export default LocationsTemplate
+export default LocationServiceTemplate
 
 export const pageQuery = graphql`
   query($id: String!) {
