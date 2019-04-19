@@ -376,7 +376,7 @@ class LocationsTemplate extends Component {
 
         <section class="bg-grey section text-center services-cta">
           <h2 class="big-title">
-            Let our experts in the {locations.acf.city} area help your business
+            Let our experts in {locations.acf.city} help your business
           </h2>
           <div class="space-md" />
           <a
