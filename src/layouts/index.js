@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import { rhythm } from '../utils/typography'
 import '../components/bootstrap.min.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
