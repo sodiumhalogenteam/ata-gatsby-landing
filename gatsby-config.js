@@ -6,6 +6,7 @@ module.exports = {
     author: 'Adam Curl',
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -44,7 +45,7 @@ module.exports = {
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
         // Whitelisted routes using glob patterns
-        /* 
+        /*
           This is where the inital request for API info is called. Without first requesting
           the items here, the info will not be able to be queried for the rest of the site.
           -- Adam

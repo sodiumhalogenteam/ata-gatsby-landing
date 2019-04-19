@@ -8,9 +8,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 const containerStyle = {
-  maxWidth: 700,
   margin: `0 auto`,
-  padding: rhythm(3 / 4),
 }
 
 // This is a sort of 'wrapper' for the entire site which can contain the header, footer, and any links or scripts
