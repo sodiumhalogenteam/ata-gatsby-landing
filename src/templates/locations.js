@@ -376,7 +376,7 @@ class LocationsTemplate extends Component {
 
         <section class="bg-grey section text-center services-cta">
           <h2 class="big-title">
-            Let our experts in {locations.acf.city} help your business
+            Let our experts in {locations.acf.city} help your business.
           </h2>
           <div class="space-md" />
           <a
@@ -430,20 +430,6 @@ class LocationsTemplate extends Component {
                     <a href={`tel:${leaders[i].acf.phone}`}>
                       {leaders[i].acf.phone}
                     </a>
-                    <br />
-                    {leaders[i].acf.linkdin !== '' ? (
-                      <a
-                        className="linked-in"
-                        style={{ borderBottom: 'none' }}
-                        href={leaders[i].acf.linkdin}
-                      >
-                        <i
-                          className="fa fa-linkedin-square fa-2x"
-                          aria-hidden="true"
-                        />
-                      </a>
-                    ) : null}
-                    <br />
                   </p>
                 </div>
 
