@@ -57,6 +57,7 @@ class TopNav extends React.Component {
 
     this.state = {
       background: 0,
+      modpath: window.location.pathname.split('/')[1],
     }
   }
 
@@ -115,7 +116,13 @@ class TopNav extends React.Component {
           <div id="bs-navbar-collapse-1" className="collapse navbar-collapse">
             <NavMenu id="menu-header" className="nav navbar-nav navbar-right">
               {this.props.items.map(
-                ({ title, url, wordpress_id, wordpress_children }) => (
+                ({
+                  title,
+                  url,
+                  wordpress_id,
+                  wordpress_children,
+                  object_slug,
+                }) => (
                   <NavLi
                     key={wordpress_id}
                     id={`menu-item-${wordpress_id}`}
@@ -132,15 +139,26 @@ class TopNav extends React.Component {
                       >
                         {wordpress_children.map(
                           ({ title, url, wordpress_id }) => (
-                            <NavMenuItem
-                              key={wordpress_id}
-                              id={`menu-item-${wordpress_id}`}
-                              className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${wordpress_id}`}
-                              title={title}
-                              href={url}
-                            >
-                              {title.replace('#038;', '')}
-                            </NavMenuItem>
+                            object_slug === 'services' ||
+                            object_slug === 'who-we-serve'
+                              ? (url = url.replace(
+                                  'http://atacpa.net',
+                                  `${window.location.origin}/${
+                                    this.state.modpath
+                                  }`
+                                ))
+                              : null,
+                            (
+                              <NavMenuItem
+                                key={wordpress_id}
+                                id={`menu-item-${wordpress_id}`}
+                                className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${wordpress_id}`}
+                                title={title}
+                                href={url}
+                              >
+                                {title.replace('#038;', '')}
+                              </NavMenuItem>
+                            )
                           )
                         )}
                       </NavDropdown>

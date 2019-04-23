@@ -14,6 +14,7 @@ export default () => (
                 wordpress_id
                 title
                 url
+                object_slug
                 wordpress_children {
                   wordpress_id
                   title

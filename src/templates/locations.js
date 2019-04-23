@@ -345,9 +345,9 @@ class LocationsTemplate extends Component {
           </div>
         </section>
 
-        <section class="bg-grey section-lg">
-          <div class="container">
-            <h2 class="text-center col-md-8 col-md-offset-2 md-title text-primary">
+        <section className="bg-grey section-lg">
+          <div className="container">
+            <h2 className="text-center col-md-8 col-md-offset-2 md-title text-primary">
               {locations.acf.office_description}
             </h2>
           </div>
@@ -374,14 +374,14 @@ class LocationsTemplate extends Component {
           </ServiceRow>
         </Services>
 
-        <section class="bg-grey section text-center services-cta">
-          <h2 class="big-title">
+        <section className="bg-grey section text-center services-cta">
+          <h2 className="big-title">
             Let our experts in {locations.acf.city} help your business.
           </h2>
-          <div class="space-md" />
+          <div className="space-md" />
           <a
             id="cmodal"
-            class="btn btn-primary btn-xlg"
+            className="btn btn-primary btn-xlg"
             href="https://atacpa.net/contact-us/"
           >
             Contact an expert today
