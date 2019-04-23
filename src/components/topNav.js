@@ -57,7 +57,6 @@ class TopNav extends React.Component {
 
     this.state = {
       background: 0,
-      modpath: window.location.pathname.split('/')[1],
     }
   }
 
@@ -144,7 +143,7 @@ class TopNav extends React.Component {
                               ? (url = url.replace(
                                   'http://atacpa.net',
                                   `${window.location.origin}/${
-                                    this.state.modpath
+                                    window.location.pathname.split('/')[1]
                                   }`
                                 ))
                               : null,
