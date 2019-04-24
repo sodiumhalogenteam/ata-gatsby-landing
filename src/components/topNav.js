@@ -142,8 +142,10 @@ class TopNav extends React.Component {
                             object_slug === 'who-we-serve'
                               ? (url = url.replace(
                                   'http://atacpa.net',
-                                  `${window.location.origin}/${
-                                    window.location.pathname.split('/')[1]
+                                  `${window ? window.location.origin : null}/${
+                                    window
+                                      ? window.location.pathname.split('/')[1]
+                                      : null
                                   }`
                                 ))
                               : null,
