@@ -57,6 +57,8 @@ class TopNav extends React.Component {
 
     this.state = {
       background: 0,
+      origin: '',
+      path: '',
     }
   }
 
@@ -70,6 +72,8 @@ class TopNav extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent)
+    this.setState({ origin: window.location.origin })
+    this.setState({ path: window.location.pathname.split('/')[1] })
   }
 
   componentWillUnmount() {
@@ -142,9 +146,7 @@ class TopNav extends React.Component {
                             object_slug === 'who-we-serve'
                               ? (url = url.replace(
                                   'http://atacpa.net',
-                                  `${window.location.origin}/${
-                                    window.location.pathname.split('/')[1]
-                                  }`
+                                  `${this.state.origin}/${this.state.path}`
                                 ))
                               : null,
                             (
