@@ -12,6 +12,10 @@ const SpecialtiesWrap = styled.div`
   }
 `
 
+const Jumbo = styled.div`
+  width: inherit;
+`
+
 const Services = styled.div`
   padding: 50px 0;
 `
@@ -304,14 +308,14 @@ class LocationsTemplate extends Component {
         >
           <div className="bg-filter sTop">
             <div className="container">
-              <div className="jumbotron trn v-center">
+              <Jumbo className="jumbotron trn v-center">
                 <p>Alexander Thompson Arnold PLLC</p>
                 <h1>
                   {locations.acf.city},{' '}
                   <StateWrap>{locations.acf.state}</StateWrap>
                 </h1>
                 <div className="row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-3">
                     <h4>{locations.acf.address}</h4>
                     <h4>
                       {locations.acf.city},{' '}
@@ -319,7 +323,7 @@ class LocationsTemplate extends Component {
                       {locations.acf.zip_code}
                     </h4>
                   </div>
-                  <div className="col-sm-6">
+                  <div className="col-sm-3">
                     <h4>
                       Phone:{' '}
                       <a
@@ -340,7 +344,7 @@ class LocationsTemplate extends Component {
                     </h4>
                   </div>
                 </div>
-              </div>
+              </Jumbo>
             </div>
           </div>
         </section>
@@ -389,88 +393,92 @@ class LocationsTemplate extends Component {
         </section>
 
         <div className="section-lg team-grid container">
-          <div className="row">
-            <h2 className="leader-title text-center col-sm-12">
-              {locations.acf.city}, <StateWrap>{locations.acf.state}</StateWrap>{' '}
-              Leaders
-            </h2>
-          </div>
+          {leaders.length !== 0 ? (
+            <div className="row">
+              <h2 className="leader-title text-center col-sm-12">
+                {locations.acf.city},{' '}
+                <StateWrap>{locations.acf.state}</StateWrap> Leaders
+              </h2>
+            </div>
+          ) : null}
 
-          <CenterRow className="row">
-            {leaders.map((leader, i) => (
-              <CenterCol className="col-lg-3 col-md-3 col-sm-6 staff" key={i}>
-                <div className="profile-circle">
-                  <div className="hover-content ">
-                    <img
-                      src={leaders[i].better_featured_image.source_url}
-                      alt="leader"
-                      className="img-responsive"
-                    />
-                    {leaders[i].acf.bio !== '' ? (
-                      <div className="content-circle content-center">
-                        <ul className="circle-icons icons-list">
-                          <li>
-                            <LinkBtn
-                              title="View Bio"
-                              onClick={() => this.handleShow(i)}
-                            >
-                              <i className="fa fa-align-left fa-5x" />
-                            </LinkBtn>
-                          </li>
-                        </ul>
-                      </div>
-                    ) : null}
-                  </div>
-                  <h4>
-                    {leaders[i].title},<br />
-                    <em>{leaders[i].acf.credentials}</em>
-                    <small>{leaders[i].acf.title}</small>
-                  </h4>
-                  <p>
-                    <a href={`tel:${leaders[i].acf.phone}`}>
-                      {leaders[i].acf.phone}
-                    </a>
-                  </p>
-                </div>
-
-                {leaders[i].acf.bio !== '' ? (
-                  <Modal
-                    show={this.state.show === i}
-                    onHide={() => this.handleClose()}
-                    id={i}
-                  >
-                    <Modal.Header>
-                      <button
-                        type="button"
-                        className="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                        onClick={() => this.handleClose()}
-                      >
-                        <span aria-hidden="true"> &times; </span>
-                      </button>
-                      <h4>{leaders[i].title}'s Bio</h4>
-                    </Modal.Header>
-                    <Modal.Body>
+          {leaders.length !== 0 ? (
+            <CenterRow className="row">
+              {leaders.map((leader, i) => (
+                <CenterCol className="col-lg-3 col-md-3 col-sm-6 staff" key={i}>
+                  <div className="profile-circle">
+                    <div className="hover-content ">
                       <img
-                        width="150"
-                        height="150"
                         src={leaders[i].better_featured_image.source_url}
                         alt="leader"
                         className="img-responsive"
                       />
-                      <div className="space-sm" />
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: leaders[i].acf.bio,
-                        }}
-                      />
-                    </Modal.Body>
-                  </Modal>
-                ) : null}
-              </CenterCol>
-            ))}
-          </CenterRow>
+                      {leaders[i].acf.bio !== '' ? (
+                        <div className="content-circle content-center">
+                          <ul className="circle-icons icons-list">
+                            <li>
+                              <LinkBtn
+                                title="View Bio"
+                                onClick={() => this.handleShow(i)}
+                              >
+                                <i className="fa fa-align-left fa-5x" />
+                              </LinkBtn>
+                            </li>
+                          </ul>
+                        </div>
+                      ) : null}
+                    </div>
+                    <h4>
+                      {leaders[i].title},<br />
+                      <em>{leaders[i].acf.credentials}</em>
+                      <small>{leaders[i].acf.title}</small>
+                    </h4>
+                    <p>
+                      <a href={`tel:${leaders[i].acf.phone}`}>
+                        {leaders[i].acf.phone}
+                      </a>
+                    </p>
+                  </div>
+
+                  {leaders[i].acf.bio !== '' ? (
+                    <Modal
+                      show={this.state.show === i}
+                      onHide={() => this.handleClose()}
+                      id={i}
+                    >
+                      <Modal.Header>
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                          onClick={() => this.handleClose()}
+                        >
+                          <span aria-hidden="true"> &times; </span>
+                        </button>
+                        <h4>{leaders[i].title}'s Bio</h4>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <img
+                          width="150"
+                          height="150"
+                          src={leaders[i].better_featured_image.source_url}
+                          alt="leader"
+                          className="img-responsive"
+                        />
+                        <div className="space-sm" />
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: leaders[i].acf.bio,
+                          }}
+                        />
+                      </Modal.Body>
+                    </Modal>
+                  ) : null}
+                </CenterCol>
+              ))}
+            </CenterRow>
+          ) : null}
 
           <section className="team-grid container">
             <div className="row">
