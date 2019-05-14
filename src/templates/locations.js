@@ -36,6 +36,10 @@ const LinkBtn = styled.button`
 
 const CenterRow = styled.div`
   text-align: center;
+
+  .staff {
+    height: 400px;
+  }
 `
 
 const CenterCol = styled.div`
@@ -90,18 +94,6 @@ class LocationsTemplate extends Component {
     this.setState({ show: id })
   }
 
-  compare = (a, b) => {
-    var aName = a.title.split(' ')
-    var bName = b.title.split(' ')
-
-    var aLastName = aName[aName.length - 1]
-    var bLastName = bName[bName.length - 1]
-
-    if (aLastName < bLastName) return -1
-    if (aLastName > bLastName) return 1
-    return 0
-  }
-
   render() {
     const data = this.props.data
     const locations = this.props.data.wordpressWpLocations
@@ -132,7 +124,15 @@ class LocationsTemplate extends Component {
     )
 
     // sort the leaders array using compare function
-    leaders.sort(this.compare)
+    leaders.sort(function(a, b) {
+      if (a.title < b.title) {
+        return -1
+      }
+      if (a.title > b.title) {
+        return 1
+      }
+      return 0
+    })
 
     // add services to rows
     let serviceRows = []

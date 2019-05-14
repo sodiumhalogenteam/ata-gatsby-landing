@@ -49,6 +49,10 @@ const LinkBtn = styled.button`
 
 const CenterRow = styled.div`
   text-align: center;
+
+  .staff {
+    height: 400px;
+  }
 `
 
 const CenterCol = styled.div`
@@ -107,6 +111,17 @@ class LocationServiceTemplate extends Component {
           )
         : null
     )
+
+    // sort the leaders array using compare function
+    leaders.sort(function(a, b) {
+      if (a.title < b.title) {
+        return -1
+      }
+      if (a.title > b.title) {
+        return 1
+      }
+      return 0
+    })
 
     return (
       <Layout>
