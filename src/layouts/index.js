@@ -69,6 +69,10 @@ class DefaultLayout extends React.Component {
             type="text/css"
             media="all"
           />
+          <meta
+            name="google-site-verification"
+            content="a-3hpnbDBUATj-gfdgSJcAtrJRVnK12292iTbJygUSI"
+          />
         </Helmet>
         <Header />
         <div css={containerStyle}>{this.props.children}</div>
