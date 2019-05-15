@@ -47,9 +47,6 @@ class Home extends Component {
     for (let i = 0; i < locationsLen; i += 3) {
       let j = i + 1
       let k = i + 2
-      if (i < locationsLen) console.log('i', locations[i].node.slug)
-      if (j < locationsLen) console.log('j', locations[j].node.slug)
-      if (k < locationsLen) console.log('k', locations[k].node.slug)
       if (j < locationsLen && k < locationsLen) {
         locationsList.push(
           <SpecialtiesWrap className="row" key={i}>

@@ -1,12 +1,14 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: 'https://locations.atacpa.net/',
     title: 'ATA Locations Landing Pages',
     description:
       'Prototype build for the various ATA landing pages for each location',
     author: 'Adam Curl',
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
