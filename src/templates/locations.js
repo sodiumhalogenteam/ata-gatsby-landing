@@ -171,7 +171,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
           </SpecialtiesWrap>
         )
-      } else if (j < specialtiesLen && k > specialtiesLen) {
+      } else if (j < specialtiesLen) {
         serviceRows.push(
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
@@ -249,7 +249,7 @@ class LocationsTemplate extends Component {
             </ServcieBlock>
           </SpecialtiesWrap>
         )
-      } else if (j < whoServeLen && k > whoServeLen) {
+      } else if (j < whoServeLen) {
         whoServeRows.push(
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
@@ -257,7 +257,6 @@ class LocationsTemplate extends Component {
                 href={`../${locations.slug}/${
                   locations.acf.who_we_serve[i].post_name
                 }`}
-                className="col-md-offset-1 col-md-3"
               >
                 <div>{locations.acf.who_we_serve[i].post_title}</div>
               </a>
@@ -267,7 +266,6 @@ class LocationsTemplate extends Component {
                 href={`../${locations.slug}/${
                   locations.acf.who_we_serve[j].post_name
                 }`}
-                className="col-md-3"
               >
                 <div>{locations.acf.who_we_serve[j].post_title}</div>
               </a>
