@@ -214,7 +214,7 @@ class LocationServiceTemplate extends Component {
             <a
               id="cmodal"
               className="btn btn-primary btn-xlg"
-              href="https://atacpa.net/contact-us/"
+              href={`https://atacpa.net/contact-us/?location=${locations.slug}`}
             >
               Contact an expert today
             </a>
