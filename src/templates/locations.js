@@ -141,7 +141,7 @@ class LocationsTemplate extends Component {
       let k = i + 2
       if (j < specialtiesLen && k < specialtiesLen) {
         serviceRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${
@@ -173,7 +173,7 @@ class LocationsTemplate extends Component {
         )
       } else if (j < specialtiesLen && k > specialtiesLen) {
         serviceRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${
@@ -196,7 +196,7 @@ class LocationsTemplate extends Component {
         )
       } else {
         serviceRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${
@@ -219,7 +219,7 @@ class LocationsTemplate extends Component {
       let k = i + 2
       if (j < whoServeLen && k < whoServeLen) {
         whoServeRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${
@@ -251,7 +251,7 @@ class LocationsTemplate extends Component {
         )
       } else if (j < whoServeLen && k > whoServeLen) {
         whoServeRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${
@@ -276,7 +276,7 @@ class LocationsTemplate extends Component {
         )
       } else {
         whoServeRows.push(
-          <SpecialtiesWrap className="row">
+          <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
                 href={`../${locations.slug}/${

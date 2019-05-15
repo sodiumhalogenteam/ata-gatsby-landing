@@ -206,14 +206,14 @@ class LocationServiceTemplate extends Component {
         </SpecialtiesWrap>
 
         {service_title !== 'IT Consulting' ? (
-          <section class="bg-grey section text-center services-cta">
-            <h2 class="big-title">
+          <section className="bg-grey section text-center services-cta">
+            <h2 className="big-title">
               Let our experts in {locations.acf.city} help your business.
             </h2>
-            <div class="space-md" />
+            <div className="space-md" />
             <a
               id="cmodal"
-              class="btn btn-primary btn-xlg"
+              className="btn btn-primary btn-xlg"
               href="https://atacpa.net/contact-us/"
             >
               Contact an expert today
