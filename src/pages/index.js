@@ -97,9 +97,6 @@ class Home extends Component {
 
     return (
       <Layout>
-        <Helmet defaultTitle="ATA CPA">
-          <meta name="robots" content="noindex" />
-        </Helmet>
         <div
           style={{
             paddingTop: '130px',
