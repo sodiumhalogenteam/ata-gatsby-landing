@@ -26,10 +26,13 @@
 
    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-3. **Generate Live Temp Site.**
+3. **Before Pushing Live**
+   Be sure to go to https://www.atacpa.net/wp-admin/edit.php?post_type=locations and set all location status to `published`. This way, graphql can read all of the info on those pages. After the site is successfully deployed, go back and set all posts back to `private` so that they don't show up on the main site.
+
+4. **Generate Live Temp Site.**
    The live site is generated through netlify
 
-4. **Before pushing, be sure to run `gatsby build` to make sure you don't push broken code to the repo**
+5. **Before pushing, be sure to run `gatsby build` to make sure you don't push broken code to the repo**
 
 ## Querying and Loading Data
 
