@@ -6,6 +6,8 @@ import Layout from '../layouts'
 
 // components
 import ContentBlock from '../components/SHPage/ContentBlock'
+import YoutubeIframe from '../components/YoutubeIframe'
+import FaqDropdown from '../components/SHPage/FaqDropdown'
 
 // images
 import ATALogoImg from '../img/ata-logo-alpha.png'
@@ -165,36 +167,6 @@ const VideoTestimonial = styled.div`
   margin-bottom: 50px;
 `
 
-const VideoContainer = styled.div`
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  & > iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-`
-
-const YoutubeIframe = ({ url }) => {
-  return (
-    <VideoContainer>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube-nocookie.com/embed/-m2fVWj99x4"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
-    </VideoContainer>
-  )
-}
-
 const CompanyLogoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -235,6 +207,10 @@ const YellowBar = styled.div`
   height: 20px;
   width: 100%;
   background-color: rgb(223, 212, 97);
+`
+
+const FaqContainer = styled.div`
+  margin: 200px 8% 75px 8%;
 `
 
 // the SodiumHalogen page
@@ -460,6 +436,62 @@ class SodiumHalogen extends Component {
               <img src={ATALogoBlack} />
             </CompanyLogoGrid>
             <Button>Start your project</Button>
+          </Section>
+          <Section>
+            <FaqContainer>
+              <FaqDropdown header="How does it work?">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sollicitudin pretium dui eu cursus. Maecenas ultrices justo
+                  vitae augue egestas, vitae mattis dolor tristique. Cras ut
+                  mauris in urna lobortis mollis ut eu nunc. Sed suscipit risus
+                  sed mauris tempus, vitae placerat purus fringilla. Etiam
+                  ultrices tincidunt justo, sit amet dignissim nulla rhoncus
+                  non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
+                  orci aliquet. Phasellus eget elementum lorem. In hac habitasse
+                  platea dictumst.
+                </p>
+              </FaqDropdown>
+              <FaqDropdown header="What kind of ROI can I expect?">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sollicitudin pretium dui eu cursus. Maecenas ultrices justo
+                  vitae augue egestas, vitae mattis dolor tristique. Cras ut
+                  mauris in urna lobortis mollis ut eu nunc. Sed suscipit risus
+                  sed mauris tempus, vitae placerat purus fringilla. Etiam
+                  ultrices tincidunt justo, sit amet dignissim nulla rhoncus
+                  non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
+                  orci aliquet. Phasellus eget elementum lorem. In hac habitasse
+                  platea dictumst.
+                </p>
+              </FaqDropdown>
+              <FaqDropdown header="What kinds of services can I get? ">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sollicitudin pretium dui eu cursus. Maecenas ultrices justo
+                  vitae augue egestas, vitae mattis dolor tristique. Cras ut
+                  mauris in urna lobortis mollis ut eu nunc. Sed suscipit risus
+                  sed mauris tempus, vitae placerat purus fringilla. Etiam
+                  ultrices tincidunt justo, sit amet dignissim nulla rhoncus
+                  non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
+                  orci aliquet. Phasellus eget elementum lorem. In hac habitasse
+                  platea dictumst.
+                </p>
+              </FaqDropdown>
+              <FaqDropdown header="How much will it cost?">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+                  sollicitudin pretium dui eu cursus. Maecenas ultrices justo
+                  vitae augue egestas, vitae mattis dolor tristique. Cras ut
+                  mauris in urna lobortis mollis ut eu nunc. Sed suscipit risus
+                  sed mauris tempus, vitae placerat purus fringilla. Etiam
+                  ultrices tincidunt justo, sit amet dignissim nulla rhoncus
+                  non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
+                  orci aliquet. Phasellus eget elementum lorem. In hac habitasse
+                  platea dictumst.
+                </p>
+              </FaqDropdown>
+            </FaqContainer>
           </Section>
           <Section>
             <ContentBlock flip>
