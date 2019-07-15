@@ -10,6 +10,9 @@ const ContentBlockDisplay = styled.div`
   padding: 60px 40px;
   margin: 0 40px;
   width: 100%;
+  & > p {
+    text-align: left !important;
+  }
 `
 
 const ContentBlockBox = styled.div`
