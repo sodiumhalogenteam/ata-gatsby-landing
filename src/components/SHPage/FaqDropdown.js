@@ -12,6 +12,8 @@ const Question = styled.div`
   margin-bottom: 17px;
   position: relative;
   & > h1 {
+    font-family: 'FreightSans Pro';
+    font-weight: 700;
     margin: 0;
   }
 `

@@ -28,7 +28,11 @@ const Styles = styled.div`
     padding-top: 20px;
   }
   p {
+    font-family: 'Source Sans Pro';
     text-align: center;
+  }
+  li {
+    font-family: 'FreightSans Pro';
   }
   ul {
     padding-bottom: 50px;
@@ -36,17 +40,20 @@ const Styles = styled.div`
 `
 
 const H1 = styled.h1`
+  font-family: 'FreightSans Pro';
   text-align: ${props => (props.alignLeft ? 'left' : 'center')};
-  font-weight: 600;
+  font-weight: 700;
   padding: 10px 0 20px 0;
   margin: 0;
   color: rgb(65, 77, 85);
-  font-size: 40px;
+  font-size: 45px;
 `
 
 const H2 = styled.h2`
+  font-family: 'Jubilat Regular';
   color: rgb(88, 99, 107);
   text-align: ${props => (props.alignLeft ? 'left' : 'center')};
+  font-size: 37px;
 `
 
 const Section = styled.div`
@@ -63,6 +70,7 @@ const Header = styled.div`
   background-color: rgb(149, 150, 152);
   color: #fff;
   & > h1 {
+    font-family: 'Merriweather';
     font-size: 65px;
     font-weight: 500;
     color: #fff;
@@ -78,6 +86,7 @@ const SubHeader = styled.div`
     color: rgb(89, 103, 145);
     font-weight: 600;
     padding-bottom: 30px;
+    font-family: 'Source Sans Pro';
   }
 `
 
@@ -127,6 +136,10 @@ const AchievementGrid = styled.div`
   grid-auto-rows: minmax(100px, auto);
   margin-top: 100px;
   margin-bottom: 50px;
+  & h1 {
+    font-size: 37px;
+    font-weight: 600;
+  }
 `
 
 const AchievementIcon = styled.img`
@@ -138,6 +151,9 @@ const AchievementIcon = styled.img`
 `
 
 const Button = styled.button`
+  font-family: 'FreightSans Pro';
+  font-weight: 700;
+  letter-spacing: 3px;
   border: 5px solid rgb(223, 212, 97);
   color: rgb(223, 212, 97);
   font-size: 30px;
@@ -192,6 +208,9 @@ const CTA = styled.div`
     justify-content: center;
     margin-top: 50px;
     input {
+      font-family: 'FreightSans Pro';
+      font-style: italic;
+      font-weight: 500;
       width: 30%;
       font-size: 20px;
       padding-left: 25px;
@@ -330,7 +349,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={brandCreationIcon}
                 />
-                <H2>Brand Identity Design & Development</H2>
+                <H1>Brand Identity Design & Development</H1>
                 <p>
                   Create an entire brand identity system that helps you achieve
                   your goals and works for your business
@@ -349,7 +368,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={appDesignIcon}
                 />
-                <H2>Software Application Design & Development</H2>
+                <H1>Software Application Design & Development</H1>
                 <p>
                   Does your organization have internal processes that software
                   could automate? Maybe you have an idea but don’t know how to
@@ -365,7 +384,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={userExperienceIcon}
                 />
-                <H2>Web & Interaction DesignUX/UI</H2>
+                <H1>Web & Interaction DesignUX/UI</H1>
                 <p>
                   Is your website or application not converting the way it
                   should? Are users getting stuck or not understanding how to
@@ -381,7 +400,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={virtualRealityIcon}
                 />
-                <H2>Virtual Reality Design & Development</H2>
+                <H1>Virtual Reality Design & Development</H1>
                 <p>
                   Got a crazy brilliant idea for how you can use virtual reality
                   to accomplish your business goals? Sounds like our kind of
