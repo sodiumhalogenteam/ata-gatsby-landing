@@ -9,6 +9,10 @@ import ATALogoImg from '../img/ata-logo-alpha.png'
 import ATALogoBlack from '../img/ata-logo-black.png'
 import SHLogoImg from '../img/sh-logo-white-vert.png'
 import DesignMoleculeImg from '../img/designtific-molecule.png'
+import appDesignIcon from '../img/app-design-developement.png'
+import brandCreationIcon from '../img/brand-creation.png'
+import userExperienceIcon from '../img/user-experience.png'
+import virtualRealityIcon from '../img/virtual-reality.png'
 
 const Styles = styled.div`
   p,
@@ -149,9 +153,8 @@ const AchievementGrid = styled.div`
   margin-bottom: 50px;
 `
 
-const AchievementIcon = styled.div`
-  background-color: rgb(241, 230, 167);
-  border-radius: 300px;
+const AchievementIcon = styled.img`
+  display: block;
   margin: auto;
   width: 70%;
   height: ${props => props.height}px;
@@ -373,6 +376,7 @@ class SodiumHalogen extends Component {
                 <AchievementIcon
                   ref={this.achievementIcon}
                   height={achievementIconHeight}
+                  src={brandCreationIcon}
                 />
                 <h2>Brand Identity Design & Development</h2>
                 <p>
@@ -389,7 +393,10 @@ class SodiumHalogen extends Component {
                 </p>
               </div>
               <div>
-                <AchievementIcon height={achievementIconHeight} />
+                <AchievementIcon
+                  height={achievementIconHeight}
+                  src={appDesignIcon}
+                />
                 <h2>Software Application Design & Development</h2>
                 <p>
                   Does your organization have internal processes that software
@@ -402,7 +409,10 @@ class SodiumHalogen extends Component {
                 </p>
               </div>
               <div>
-                <AchievementIcon height={achievementIconHeight} />
+                <AchievementIcon
+                  height={achievementIconHeight}
+                  src={userExperienceIcon}
+                />
                 <h2>Web & Interaction DesignUX/UI</h2>
                 <p>
                   Is your website or application not converting the way it
@@ -415,7 +425,10 @@ class SodiumHalogen extends Component {
                 </p>
               </div>
               <div>
-                <AchievementIcon height={achievementIconHeight} />
+                <AchievementIcon
+                  height={achievementIconHeight}
+                  src={virtualRealityIcon}
+                />
                 <h2>Virtual Reality Design & Development</h2>
                 <p>
                   Got a crazy brilliant idea for how you can use virtual reality
