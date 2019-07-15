@@ -4,6 +4,9 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../layouts'
 
+// components
+import ContentBlock from '../components/SHPage/ContentBlock'
+
 // images
 import ATALogoImg from '../img/ata-logo-alpha.png'
 import ATALogoBlack from '../img/ata-logo-black.png'
@@ -28,18 +31,20 @@ const Styles = styled.div`
   ul {
     padding-bottom: 50px;
   }
-  h1 {
-    text-align: center;
-    font-weight: 600;
-    padding: 10px 0 20px 0;
-    margin: 0;
-    color: rgb(65, 77, 85);
-    font-size: 40px;
-  }
-  h2 {
-    color: rgb(88, 99, 107);
-    text-align: center;
-  }
+`
+
+const H1 = styled.h1`
+  text-align: ${props => (props.alignLeft ? 'left' : 'center')};
+  font-weight: 600;
+  padding: 10px 0 20px 0;
+  margin: 0;
+  color: rgb(65, 77, 85);
+  font-size: 40px;
+`
+
+const H2 = styled.h2`
+  color: rgb(88, 99, 107);
+  text-align: ${props => (props.alignLeft ? 'left' : 'center')};
 `
 
 const Section = styled.div`
@@ -111,37 +116,6 @@ const SHLogo = styled.div`
     width: 200px;
   }
 `
-
-const ContentBlockStyles = styled.div`
-  display: flex;
-`
-
-const ContentBlockDisplay = styled.div`
-  border: 10px solid rgb(223, 212, 97);
-  padding: 60px 40px;
-  margin: 0 40px;
-  width: 100%;
-  & > h1,
-  h2,
-  p {
-    text-align: left;
-  }
-`
-
-const ContentBlockBox = styled.div`
-  width: 30%;
-  background-color: rgb(223, 212, 97);
-`
-
-const ContentBlock = ({ children, flip }) => {
-  return (
-    <ContentBlockStyles>
-      {flip ? <ContentBlockBox /> : null}
-      <ContentBlockDisplay>{children}</ContentBlockDisplay>
-      {!flip ? <ContentBlockBox /> : null}
-    </ContentBlockStyles>
-  )
-}
 
 const AchievementGrid = styled.div`
   display: grid;
@@ -321,11 +295,11 @@ class SodiumHalogen extends Component {
         />
         <Styles>
           <Header>
-            <h1>Design • Web • Software</h1>
+            <H1>Design • Web • Software</H1>
           </Header>
           <Section top>
             <SubHeader>
-              <h1>ATA + Sodium Halogen Design</h1>
+              <H1>ATA + Sodium Halogen Design</H1>
               <p>
                 Once your business is financially sound, it’s time to start
                 growing. Many businesses don’t know where to start when they
@@ -347,7 +321,7 @@ class SodiumHalogen extends Component {
             </Logos>
           </Section>
           <Section container>
-            <h1>Work with Sodium Halogen</h1>
+            <H1>Work with Sodium Halogen</H1>
             <p>
               We can help you design and build apps, branding, websites, and
               digital tools that will boost your bottom line
@@ -355,7 +329,7 @@ class SodiumHalogen extends Component {
           </Section>
           <Section>
             <ContentBlock>
-              <h1>Technology should solve problems.</h1>
+              <H1 alignLeft>Technology should solve problems.</H1>
               <ul>
                 <li>Get rid of inneficieancies in your workflow.</li>
                 <li>
@@ -366,11 +340,13 @@ class SodiumHalogen extends Component {
                   customer.
                 </li>
               </ul>
-              <h2>Sodium Halogen can help you design and build it.</h2>
+              <H2 alignLeft>
+                Sodium Halogen can help you design and build it.
+              </H2>
             </ContentBlock>
           </Section>
           <Section container>
-            <h1>What you can achieve with Sodium Halogen:</h1>
+            <H1>What you can achieve with Sodium Halogen:</H1>
             <AchievementGrid>
               <div>
                 <AchievementIcon
@@ -378,7 +354,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={brandCreationIcon}
                 />
-                <h2>Brand Identity Design & Development</h2>
+                <H2>Brand Identity Design & Development</H2>
                 <p>
                   Create an entire brand identity system that helps you achieve
                   your goals and works for your business
@@ -397,7 +373,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={appDesignIcon}
                 />
-                <h2>Software Application Design & Development</h2>
+                <H2>Software Application Design & Development</H2>
                 <p>
                   Does your organization have internal processes that software
                   could automate? Maybe you have an idea but don’t know how to
@@ -413,7 +389,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={userExperienceIcon}
                 />
-                <h2>Web & Interaction DesignUX/UI</h2>
+                <H2>Web & Interaction DesignUX/UI</H2>
                 <p>
                   Is your website or application not converting the way it
                   should? Are users getting stuck or not understanding how to
@@ -429,7 +405,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={virtualRealityIcon}
                 />
-                <h2>Virtual Reality Design & Development</h2>
+                <H2>Virtual Reality Design & Development</H2>
                 <p>
                   Got a crazy brilliant idea for how you can use virtual reality
                   to accomplish your business goals? Sounds like our kind of
@@ -444,7 +420,7 @@ class SodiumHalogen extends Component {
             <Button>Start a project</Button>
           </Section>
           <Section container>
-            <h1>Our Process: The Designtific Method</h1>
+            <H1>Our Process: The Designtific Method</H1>
             <p>
               Our Designtific Method focuses on solving your customers’ problems
               while accomplishing your business goals.
@@ -474,7 +450,7 @@ class SodiumHalogen extends Component {
             </VideoTestimonial>
           </Section>
           <Section>
-            <h1>Over the past 18 years we've helped:</h1>
+            <H1>Over the past 18 years we've helped:</H1>
             <CompanyLogoGrid>
               <img src={ATALogoBlack} />
               <img src={ATALogoBlack} />
@@ -487,7 +463,7 @@ class SodiumHalogen extends Component {
           </Section>
           <Section>
             <ContentBlock flip>
-              <h1>Is Sodium Halogen right for you?</h1>
+              <H1 alignLeft>Is Sodium Halogen right for you?</H1>
               <p>
                 The types of organizations that benefit most tend to be small to
                 mid-sized, privately held organizations where:
@@ -511,7 +487,7 @@ class SodiumHalogen extends Component {
           </Section>
           <Section bottom>
             <CTA>
-              <h1>Free Project Checklist</h1>
+              <H1>Free Project Checklist</H1>
               <p>
                 With 17 years of experience in this field, we know what things
                 you should consider when starting your project. Download this
