@@ -165,7 +165,12 @@ const Button = styled.button`
   background: none;
   padding: 10px 40px;
   border-radius: 15px;
+  text-transform: uppercase;
   ${props => (!props.alignLeft ? 'margin: auto; display: block;' : null)}
+  ${props =>
+    props.alt
+      ? 'background-color:rgb(223, 212, 97); color:#fff; font-size: 25px;'
+      : null}
 `
 
 const DesignMolecule = styled.img`
@@ -224,6 +229,35 @@ const CompanyLogoGrid = styled.div`
   & > img {
     width: 100%;
   }
+`
+
+const CTA = styled.div`
+  background-color: RGB(45, 58, 67);
+  padding: 60px 8% 100px 8%;
+  h1,
+  p {
+    color: #fff;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    input {
+      width: 30%;
+      font-size: 20px;
+      padding-left: 25px;
+      margin-right: 25px;
+    }
+    button {
+      margin-left: 15px;
+    }
+  }
+`
+
+const YellowBar = styled.div`
+  height: 20px;
+  width: 100%;
+  background-color: rgb(223, 212, 97);
 `
 
 // the SodiumHalogen page
@@ -461,6 +495,24 @@ class SodiumHalogen extends Component {
               </ul>
               <Button alignLeft>Start your project</Button>
             </ContentBlock>
+          </Section>
+          <Section bottom>
+            <CTA>
+              <h1>Free Project Checklist</h1>
+              <p>
+                With 17 years of experience in this field, we know what things
+                you should consider when starting your project. Download this
+                free resource and start your project with confidence.
+              </p>
+              <form action="">
+                <input type="text" name="name" id="" placeholder="Full Name" />
+                <input type="email" name="email" id="" placeholder="Email" />
+                <Button alignLeft alt>
+                  Submit
+                </Button>
+              </form>
+            </CTA>
+            <YellowBar />
           </Section>
         </Styles>
       </Layout>
