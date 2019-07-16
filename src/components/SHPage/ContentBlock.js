@@ -6,7 +6,7 @@ const ContentBlockStyles = styled.div`
 `
 
 const ContentBlockDisplay = styled.div`
-  border: 10px solid rgb(223, 212, 97);
+  border: 10px solid #d3d655;
   padding: 60px 40px;
   margin: 0 40px;
   width: 100%;
@@ -17,7 +17,7 @@ const ContentBlockDisplay = styled.div`
 
 const ContentBlockBox = styled.div`
   width: 30%;
-  background-color: rgb(223, 212, 97);
+  background-color: #d3d655;
 `
 
 const ContentBlock = ({ children, flip }) => {

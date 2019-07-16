@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Question = styled.div`
-  border: solid 1px rgb(223, 212, 97);
-  background-color: rgb(223, 212, 97);
+  border: solid 1px #d3d655;
+  background-color: #d3d655;
   color: #fff;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;

@@ -19,20 +19,21 @@ import brandCreationIcon from '../img/brand-creation.png'
 import userExperienceIcon from '../img/user-experience.png'
 import virtualRealityIcon from '../img/virtual-reality.png'
 
+const yellow = '#D3D655'
+
 const Styles = styled.div`
   p,
   li {
     color: rgb(149, 150, 152);
-    font-weight: 600;
     font-size: 25px;
     padding-top: 20px;
   }
   p {
-    font-family: 'Source Sans Pro';
+    font-family: source-sans-pro, sans-serif;
     text-align: center;
   }
   li {
-    font-family: 'FreightSans Pro';
+    font-family: freight-sans-pro, sans-serif;
   }
   ul {
     padding-bottom: 50px;
@@ -40,7 +41,7 @@ const Styles = styled.div`
 `
 
 const H1 = styled.h1`
-  font-family: 'FreightSans Pro';
+  font-family: freight-sans-pro, sans-serif;
   text-align: ${props => (props.alignLeft ? 'left' : 'center')};
   font-weight: 700;
   padding: 10px 0 20px 0;
@@ -50,7 +51,7 @@ const H1 = styled.h1`
 `
 
 const H2 = styled.h2`
-  font-family: 'Jubilat Regular';
+  font-family: jubilat, serif;
   color: rgb(88, 99, 107);
   text-align: ${props => (props.alignLeft ? 'left' : 'center')};
   font-size: 37px;
@@ -86,7 +87,7 @@ const SubHeader = styled.div`
     color: rgb(89, 103, 145);
     font-weight: 600;
     padding-bottom: 30px;
-    font-family: 'Source Sans Pro';
+    font-family: source-sans-pro, sans-serif;
   }
 `
 
@@ -147,15 +148,15 @@ const AchievementIcon = styled.img`
   margin: auto;
   width: 70%;
   height: ${props => props.height}px;
-  margin-bottom: 45px;
+  margin-bottom: 10px;
 `
 
 const Button = styled.button`
-  font-family: 'FreightSans Pro';
+  font-family: freight-sans-pro, sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
-  border: 5px solid rgb(223, 212, 97);
-  color: rgb(223, 212, 97);
+  border: 5px solid ${yellow};
+  color: ${yellow};
   font-size: 30px;
   background: none;
   padding: 10px 40px;
@@ -164,7 +165,7 @@ const Button = styled.button`
   ${props => (!props.alignLeft ? 'margin: auto; display: block;' : null)}
   ${props =>
     props.alt
-      ? 'background-color:rgb(223, 212, 97); color:#fff; font-size: 25px;'
+      ? `background-color:${yellow}; color:#fff; font-size: 25px;`
       : null}
 `
 
@@ -208,7 +209,7 @@ const CTA = styled.div`
     justify-content: center;
     margin-top: 50px;
     input {
-      font-family: 'FreightSans Pro';
+      font-family: freight-sans-pro, sans-serif;
       font-style: italic;
       font-weight: 500;
       width: 30%;
@@ -225,7 +226,7 @@ const CTA = styled.div`
 const YellowBar = styled.div`
   height: 20px;
   width: 100%;
-  background-color: rgb(223, 212, 97);
+  background-color: ${yellow};
 `
 
 const FaqContainer = styled.div`
@@ -273,6 +274,7 @@ class SodiumHalogen extends Component {
         <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
           <title>ATA CPA</title>
           <meta name="description" content={description} />
+          <link rel="stylesheet" href="https://use.typekit.net/vkj7qzb.css" />
           {/* <meta
             name="image"
             content={locations.better_featured_image.source_url}
@@ -332,7 +334,7 @@ class SodiumHalogen extends Component {
             <ContentBlock>
               <H1 alignLeft>Technology should solve problems.</H1>
               <ul>
-                <li>Get rid of inneficieancies in your workflow.</li>
+                <li>Get rid of inefficiencies in your workflow.</li>
                 <li>
                   Improve your customer's user experience with your company.
                 </li>
