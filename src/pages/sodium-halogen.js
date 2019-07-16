@@ -259,28 +259,34 @@ class SodiumHalogen extends Component {
     this.setState({ achievementIconHeight: width })
   }
 
+  // meta stuff
+
   render() {
     const { achievementIconHeight } = this.state
 
+    const title = 'Sodium Halogen'
+    const description =
+      'We create customer centered and results focused applications for web, mobile and virtual reality | Jackson, TN &amp; Nashville, TN'
+
     return (
       <Layout>
-        {/* <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
+        <Helmet defaultTitle={title} titleTemplate={`%s | ${title}`}>
           <title>ATA CPA</title>
           <meta name="description" content={description} />
-          <meta
+          {/* <meta
             name="image"
             content={locations.better_featured_image.source_url}
           /> */}
-        {/* Twitter Card tags */}
-        {/* <meta name="twitter:card" content="summary_large_image" /> */}
-        {/* <meta name="twitter:creator" content={seo.social.twitter} /> */}
-        {/* <meta name="twitter:title" content={`ATA CPA | ${title}`} />
+          {/* Twitter Card tags */}
+          {/* <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:creator" content={seo.social.twitter} />
+          /* <meta name="twitter:title" content={`ATA CPA | ${title}`} />
           <meta name="twitter:description" content={description} />
           <meta
             name="twitter:image"
             content={locations.better_featured_image.source_url}
-          />
-        </Helmet> */}
+          /> */}
+        </Helmet>
         <div
           style={{
             paddingTop: '94px',
