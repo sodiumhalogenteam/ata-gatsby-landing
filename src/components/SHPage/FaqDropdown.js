@@ -11,6 +11,7 @@ const Question = styled.div`
   padding: 30px 20px;
   margin-bottom: 17px;
   position: relative;
+  cursor: pointer;
   & > h1 {
     font-family: 'FreightSans Pro';
     font-weight: 700;
