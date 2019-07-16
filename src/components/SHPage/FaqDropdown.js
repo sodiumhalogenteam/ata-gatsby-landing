@@ -16,6 +16,9 @@ const Question = styled.div`
     font-family: 'FreightSans Pro';
     font-weight: 700;
     margin: 0;
+    @media screen and (max-width: 480px) {
+      font-size: 20px;
+    }
   }
 `
 
@@ -28,6 +31,9 @@ const Answer = styled.div`
   transition: all 0.25s;
   & > p {
     text-align: left !important;
+    @media screen and (max-width: 480px) {
+      font-size: 15px !important;
+    }
   }
 `
 

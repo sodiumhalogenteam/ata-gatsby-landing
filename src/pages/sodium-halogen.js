@@ -21,23 +21,24 @@ import virtualRealityIcon from '../img/virtual-reality.png'
 
 const yellow = '#D3D655'
 
-const Styles = styled.div`
-  p,
+const Ul = styled.ul`
+  padding-bottom: 50px;
   li {
     color: rgb(149, 150, 152);
     font-size: 25px;
     padding-top: 20px;
-  }
-  p {
-    font-family: source-sans-pro, sans-serif;
-    text-align: center;
-  }
-  li {
+    font-weight: 500;
     font-family: freight-sans-pro, sans-serif;
   }
-  ul {
-    padding-bottom: 50px;
-  }
+`
+
+const P = styled.p`
+  font-family: source-sans-pro, sans-serif;
+  text-align: center;
+  color: rgb(149, 150, 152);
+  font-size: 25px;
+  padding-top: 20px;
+  font-weight: 500;
 `
 
 const H1 = styled.h1`
@@ -61,6 +62,10 @@ const Section = styled.div`
   padding: ${props => (props.top ? '0' : '30px')} 0
     ${props => (props.bottom ? '0' : '30px')} 0;
   ${props => (props.container ? 'width: 66%; margin: auto;' : null)}
+  @media screen and (max-width: 480px) {
+    width: 95%;
+    margin: auto;
+  }
 `
 
 const Header = styled.div`
@@ -76,10 +81,18 @@ const Header = styled.div`
     font-weight: 500;
     color: #fff;
   }
+  @media screen and (max-width: 480px) {
+    span {
+      display: none;
+    }
+  }
 `
 
 const SubHeader = styled.div`
   width: 66%;
+  @media screen and (max-width: 480px) {
+    width: 95%;
+  }
   margin: auto;
   text-align: center;
   padding: 50px 0;
@@ -94,15 +107,22 @@ const SubHeader = styled.div`
 const Logos = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+  }
   & > div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 400px;
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
   }
   & > span {
     width: 0px;
+    height: 0px;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -111,6 +131,10 @@ const Logos = styled.div`
       font-size: 300px;
       color: #fff;
       font-weight: 500;
+      @media screen and (max-width: 480px) {
+        position: relative;
+        top: -10px;
+      }
     }
   }
 `
@@ -119,6 +143,9 @@ const ATALogo = styled.div`
   background-color: rgb(89, 103, 145);
   > img {
     width: 420px;
+    @media screen and (max-width: 480px) {
+      width: 340px;
+    }
   }
 `
 
@@ -130,11 +157,13 @@ const SHLogo = styled.div`
 `
 
 const AchievementGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20%;
-  grid-row-gap: 100px;
-  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20%;
+    grid-row-gap: 100px;
+    grid-auto-rows: minmax(100px, auto);
+  }
   margin-top: 100px;
   margin-bottom: 50px;
   & h1 {
@@ -171,17 +200,31 @@ const Button = styled.button`
 
 const DesignMolecule = styled.img`
   padding: 80px 0;
+  max-width: 100%;
 `
 
 const VideoTestimonial = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 8%;
-  grid-template-columns:
-  flex-direction: row;
+  @media screen and (min-width: 480px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 8%;
+  }
   padding: 100px 8%;
   background-color: rgb(231, 231, 232);
   margin-bottom: 50px;
+`
+
+const QuoteComma = styled.p`
+  font-family: freight-sans-pro, sans-serif;
+  font-weight: 600;
+  font-size: 80px;
+  color: #231f20;
+  line-height: 40px;
+  margin: auto;
+  width: 36px;
+  @media screen and (max-width: 480px) {
+    margin-top: 50px;
+  }
 `
 
 const CompanyLogoGrid = styled.div`
@@ -207,6 +250,10 @@ const CTA = styled.div`
   form {
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 480px) {
+      align-items: center;
+      flex-direction: column;
+    }
     margin-top: 50px;
     input {
       font-family: freight-sans-pro, sans-serif;
@@ -216,9 +263,19 @@ const CTA = styled.div`
       font-size: 20px;
       padding-left: 25px;
       margin-right: 25px;
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+        height: 50px;
+      }
     }
     button {
       margin-left: 15px;
+      @media screen and (max-width: 480px) {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
   }
 `
@@ -296,44 +353,46 @@ class SodiumHalogen extends Component {
             color: '#fff',
           }}
         />
-        <Styles>
+        <>
           <Header>
-            <H1>Design • Web • Software</H1>
+            <H1>
+              Design <span>• </span>Web <span>• </span>Software
+            </H1>
           </Header>
           <Section top>
             <SubHeader>
               <H1>ATA + Sodium Halogen Design</H1>
-              <p>
+              <P>
                 Once your business is financially sound, it’s time to start
                 growing. Many businesses don’t know where to start when they
                 reach this point. We have partnered with Sodium Halogen to help
                 your company create new digital tools to be more efficient and
                 stand out in the market place.
-              </p>
+              </P>
             </SubHeader>
-            <Logos>
-              <ATALogo>
-                <img src={ATALogoImg} />
-              </ATALogo>
-              <span>
-                <p>+</p>
-              </span>
-              <SHLogo>
-                <img src={SHLogoImg} />
-              </SHLogo>
-            </Logos>
           </Section>
+          <Logos>
+            <ATALogo>
+              <img src={ATALogoImg} />
+            </ATALogo>
+            <span>
+              <P>+</P>
+            </span>
+            <SHLogo>
+              <img src={SHLogoImg} />
+            </SHLogo>
+          </Logos>
           <Section container>
             <H1>Work with Sodium Halogen</H1>
-            <p>
+            <P>
               We can help you design and build apps, branding, websites, and
               digital tools that will boost your bottom line
-            </p>
+            </P>
           </Section>
           <Section>
             <ContentBlock>
               <H1 alignLeft>Technology should solve problems.</H1>
-              <ul>
+              <Ul>
                 <li>Get rid of inefficiencies in your workflow.</li>
                 <li>
                   Improve your customer's user experience with your company.
@@ -342,7 +401,7 @@ class SodiumHalogen extends Component {
                   Create products and tools that get you noticed by your ideal
                   customer.
                 </li>
-              </ul>
+              </Ul>
               <H2 alignLeft>
                 Sodium Halogen can help you design and build it.
               </H2>
@@ -358,18 +417,18 @@ class SodiumHalogen extends Component {
                   src={brandCreationIcon}
                 />
                 <H1>Brand Identity Design & Development</H1>
-                <p>
+                <P>
                   Create an entire brand identity system that helps you achieve
                   your goals and works for your business
-                </p>
-                <p>
+                </P>
+                <P>
                   Refine your company message to connect with how you solve your
                   customer's problems
-                </p>
-                <p>
+                </P>
+                <P>
                   Create marketing materials that are an extension of your
                   overall brand
-                </p>
+                </P>
               </div>
               <div>
                 <AchievementIcon
@@ -377,15 +436,15 @@ class SodiumHalogen extends Component {
                   src={appDesignIcon}
                 />
                 <H1>Software Application Design & Development</H1>
-                <p>
+                <P>
                   Does your organization have internal processes that software
                   could automate? Maybe you have an idea but don’t know how to
                   make it happen?
-                </p>
-                <p>
+                </P>
+                <P>
                   Our team can help you design and build it from start to
                   finish.
-                </p>
+                </P>
               </div>
               <div>
                 <AchievementIcon
@@ -393,15 +452,15 @@ class SodiumHalogen extends Component {
                   src={userExperienceIcon}
                 />
                 <H1>Web & Interaction DesignUX/UI</H1>
-                <p>
+                <P>
                   Is your website or application not converting the way it
                   should? Are users getting stuck or not understanding how to
                   accomplish simple tasks?
-                </p>
-                <p>
+                </P>
+                <P>
                   We use our Designtific Method to craft a product that your
                   customers will love first and foremost.
-                </p>
+                </P>
               </div>
               <div>
                 <AchievementIcon
@@ -409,49 +468,47 @@ class SodiumHalogen extends Component {
                   src={virtualRealityIcon}
                 />
                 <H1>Virtual Reality Design & Development</H1>
-                <p>
+                <P>
                   Got a crazy brilliant idea for how you can use virtual reality
                   to accomplish your business goals? Sounds like our kind of
                   crazy.
-                </p>
-                <p>
+                </P>
+                <P>
                   We’ve built immersive experiences for the Oculus Rift and HTC
                   Vive to help businesses like yours stand out.
-                </p>
+                </P>
               </div>
             </AchievementGrid>
             <Button>Start a project</Button>
           </Section>
           <Section container>
             <H1>Our Process: The Designtific Method</H1>
-            <p>
+            <P>
               Our Designtific Method focuses on solving your customers’ problems
               while accomplishing your business goals.
-            </p>
+            </P>
             <DesignMolecule
               src={DesignMoleculeImg}
               alt="designtific molecule"
             />
-            <p>
+            <P>
               Our small, multi-disciplinary team has spent the last 18 years
               experimenting and refining our process for turning great ideas
               into solid strategy and great digital products and experiences.
-            </p>
+            </P>
           </Section>
-          <Section>
-            <VideoTestimonial>
-              <YoutubeIframe />
-              <div>
-                <p>"</p>
-                <p>
-                  you .......Lorem ipsum dolor sit amet, consectetuer adipiscing
-                  elit, sed diam nonummy nibh euismod lit, sed diam nonummy nibh
-                  euismod lit, sed diam nonummy nibh euismod ut laoreet
-                </p>
-                <p>- John Doe, President</p>
-              </div>
-            </VideoTestimonial>
-          </Section>
+          <VideoTestimonial>
+            <YoutubeIframe />
+            <div>
+              <QuoteComma>“</QuoteComma>
+              <P>
+                you .......Lorem ipsum dolor sit amet, consectetuer adipiscing
+                elit, sed diam nonummy nibh euismod lit, sed diam nonummy nibh
+                euismod lit, sed diam nonummy nibh euismod ut laoreet
+              </P>
+              <P>- John Doe, President</P>
+            </div>
+          </VideoTestimonial>
           <Section>
             <H1>Over the past 18 years we've helped:</H1>
             <CompanyLogoGrid>
@@ -467,7 +524,7 @@ class SodiumHalogen extends Component {
           <Section>
             <FaqContainer>
               <FaqDropdown header="How does it work?">
-                <p>
+                <P>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   sollicitudin pretium dui eu cursus. Maecenas ultrices justo
                   vitae augue egestas, vitae mattis dolor tristique. Cras ut
@@ -477,10 +534,10 @@ class SodiumHalogen extends Component {
                   non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
                   orci aliquet. Phasellus eget elementum lorem. In hac habitasse
                   platea dictumst.
-                </p>
+                </P>
               </FaqDropdown>
               <FaqDropdown header="What kind of ROI can I expect?">
-                <p>
+                <P>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   sollicitudin pretium dui eu cursus. Maecenas ultrices justo
                   vitae augue egestas, vitae mattis dolor tristique. Cras ut
@@ -490,10 +547,10 @@ class SodiumHalogen extends Component {
                   non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
                   orci aliquet. Phasellus eget elementum lorem. In hac habitasse
                   platea dictumst.
-                </p>
+                </P>
               </FaqDropdown>
               <FaqDropdown header="What kinds of services can I get? ">
-                <p>
+                <P>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   sollicitudin pretium dui eu cursus. Maecenas ultrices justo
                   vitae augue egestas, vitae mattis dolor tristique. Cras ut
@@ -503,10 +560,10 @@ class SodiumHalogen extends Component {
                   non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
                   orci aliquet. Phasellus eget elementum lorem. In hac habitasse
                   platea dictumst.
-                </p>
+                </P>
               </FaqDropdown>
               <FaqDropdown header="How much will it cost?">
-                <p>
+                <P>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
                   sollicitudin pretium dui eu cursus. Maecenas ultrices justo
                   vitae augue egestas, vitae mattis dolor tristique. Cras ut
@@ -516,18 +573,18 @@ class SodiumHalogen extends Component {
                   non. Vestibulum aliquam ante vel ipsum dapibus, eu ultricies
                   orci aliquet. Phasellus eget elementum lorem. In hac habitasse
                   platea dictumst.
-                </p>
+                </P>
               </FaqDropdown>
             </FaqContainer>
           </Section>
           <Section>
             <ContentBlock flip>
               <H1 alignLeft>Is Sodium Halogen right for you?</H1>
-              <p>
+              <P>
                 The types of organizations that benefit most tend to be small to
                 mid-sized, privately held organizations where:
-              </p>
-              <ul>
+              </P>
+              <Ul>
                 <li>The owner has been doing his/her own marketing</li>
                 <li>
                   There is little to no in-house marketing staf or department
@@ -540,29 +597,27 @@ class SodiumHalogen extends Component {
                   of tasks – and they’re struggling to keep pace with the
                   ever-growing list.
                 </li>
-              </ul>
+              </Ul>
               <Button alignLeft>Start your project</Button>
             </ContentBlock>
           </Section>
-          <Section bottom>
-            <CTA>
-              <H1>Free Project Checklist</H1>
-              <p>
-                With 17 years of experience in this field, we know what things
-                you should consider when starting your project. Download this
-                free resource and start your project with confidence.
-              </p>
-              <form action="">
-                <input type="text" name="name" id="" placeholder="Full Name" />
-                <input type="email" name="email" id="" placeholder="Email" />
-                <Button alignLeft alt>
-                  Submit
-                </Button>
-              </form>
-            </CTA>
-            <YellowBar />
-          </Section>
-        </Styles>
+          <CTA>
+            <H1>Free Project Checklist</H1>
+            <P>
+              With 17 years of experience in this field, we know what things you
+              should consider when starting your project. Download this free
+              resource and start your project with confidence.
+            </P>
+            <form action="">
+              <input type="text" name="name" id="" placeholder="Full Name" />
+              <input type="email" name="email" id="" placeholder="Email" />
+              <Button alignLeft alt>
+                Submit
+              </Button>
+            </form>
+          </CTA>
+          <YellowBar />
+        </>
       </Layout>
     )
   }
