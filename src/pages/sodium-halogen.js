@@ -12,7 +12,7 @@ import FaqDropdown from '../components/SHPage/FaqDropdown'
 // images
 import ATALogoImg from '../img/ata-logo-alpha.png'
 import ATALogoBlack from '../img/ata-logo-black.png'
-import SHLogoImg from '../img/sh-logo-white-vert.png'
+import SHLogoImg from '../img/sh-logo.png'
 import DesignMoleculeImg from '../img/designtific-molecule.png'
 import appDesignIcon from '../img/app-design-developement.png'
 import brandCreationIcon from '../img/brand-creation.png'
@@ -214,13 +214,19 @@ const VideoTestimonial = styled.div`
   margin-bottom: 50px;
 `
 
+const QuoteContainer = styled.div`
+      display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+`
+
 const QuoteComma = styled.p`
   font-family: freight-sans-pro, sans-serif;
   font-weight: 600;
   font-size: 80px;
   color: #231f20;
   line-height: 40px;
-  margin: auto;
   width: 36px;
   @media screen and (max-width: 480px) {
     margin-top: 50px;
@@ -499,7 +505,7 @@ class SodiumHalogen extends Component {
           </Section>
           <VideoTestimonial>
             <YoutubeIframe />
-            <div>
+            <QuoteContainer>
               <QuoteComma>“</QuoteComma>
               <P>
                 you .......Lorem ipsum dolor sit amet, consectetuer adipiscing
@@ -507,7 +513,7 @@ class SodiumHalogen extends Component {
                 euismod lit, sed diam nonummy nibh euismod ut laoreet
               </P>
               <P>- John Doe, President</P>
-            </div>
+            </QuoteContainer>
           </VideoTestimonial>
           <Section>
             <H1>Over the past 18 years we've helped:</H1>
