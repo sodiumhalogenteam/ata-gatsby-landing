@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Layout from '../layouts'
 
+import Particles from 'react-particles-js'
+
 // components
 import ContentBlock from '../components/SHPage/ContentBlock'
 import YoutubeIframe from '../components/YoutubeIframe'
@@ -62,6 +64,7 @@ const Section = styled.div`
   padding: ${props => (props.top ? '0' : '30px')} 0
     ${props => (props.bottom ? '0' : '30px')} 0;
   ${props => (props.container ? 'width: 66%; margin: auto;' : null)}
+  ${props => (props.noParticles ? 'background: #fff;' : null)}
   @media screen and (max-width: 480px) {
     width: 95%;
     margin: auto;
@@ -215,10 +218,10 @@ const VideoTestimonial = styled.div`
 `
 
 const QuoteContainer = styled.div`
-      display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const QuoteComma = styled.p`
@@ -360,12 +363,79 @@ class SodiumHalogen extends Component {
           }}
         />
         <>
+          <Particles
+            style={{
+              position: 'fixed',
+              top: 0,
+              zIndex: -1,
+            }}
+            params={{
+              particles: {
+                number: {
+                  value: 80,
+                  density: {
+                    enable: true,
+                    value_area: 800,
+                  },
+                },
+                color: { value: '#000' },
+                shape: {
+                  type: 'circle',
+                  stroke: {
+                    width: 0,
+                    color: '#000000',
+                  },
+                  polygon: { nb_sides: 5 },
+                  image: {
+                    src: 'img/github.svg',
+                    width: 100,
+                    height: 100,
+                  },
+                },
+                opacity: {
+                  value: 0.2,
+                  random: false,
+                  anim: {
+                    enable: false,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false,
+                  },
+                },
+                size: {
+                  value: 3,
+                  random: true,
+                  anim: {
+                    enable: false,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false,
+                  },
+                },
+                move: {
+                  enable: true,
+                  speed: 1,
+                  direction: 'none',
+                  random: false,
+                  straight: false,
+                  out_mode: 'out',
+                  bounce: false,
+                  attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200,
+                  },
+                },
+              },
+              retina_detect: true,
+            }}
+          />
           <Header>
             <H1>
               Design <span>• </span>Web <span>• </span>Software
             </H1>
           </Header>
-          <Section top>
+          <Section top noParticles>
             <SubHeader>
               <H1>ATA + Sodium Halogen Design</H1>
               <P>
