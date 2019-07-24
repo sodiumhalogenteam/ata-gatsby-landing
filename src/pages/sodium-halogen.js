@@ -26,8 +26,8 @@ const yellow = '#D3D655'
 const Ul = styled.ul`
   padding-bottom: 50px;
   li {
-    color: rgb(149, 150, 152);
-    font-size: 25px;
+    color: #656667;
+    font-size: 23px;
     padding-top: 20px;
     font-weight: 500;
     font-family: freight-sans-pro, sans-serif;
@@ -37,8 +37,8 @@ const Ul = styled.ul`
 const P = styled.p`
   font-family: source-sans-pro, sans-serif;
   text-align: center;
-  color: rgb(149, 150, 152);
-  font-size: 25px;
+  color: #656667;
+  font-size: 23px;
   padding-top: 20px;
   font-weight: 500;
 `
@@ -49,22 +49,26 @@ const H1 = styled.h1`
   font-weight: 700;
   padding: 10px 0 20px 0;
   margin: 0;
-  color: rgb(65, 77, 85);
+  color: #414d55;
   font-size: 45px;
 `
 
 const H2 = styled.h2`
-  font-family: jubilat, serif;
-  color: rgb(88, 99, 107);
+  font-family: ${props =>
+    props.alt ? 'jubilat, serif' : 'freight-sans-pro, sans-serif'};
+  color: ${props => (props.alt ? 'rgb(88, 99, 107)' : '#414d55')};
   text-align: ${props => (props.alignLeft ? 'left' : 'center')};
   font-size: 37px;
 `
 
 const Section = styled.div`
-  padding: ${props => (props.top ? '0' : '30px')} 0
-    ${props => (props.bottom ? '0' : '30px')} 0;
+  padding: ${props => (props.top ? '0' : '75px')} 0
+    ${props => (props.bottom ? '0' : '75px')} 0;
   ${props => (props.container ? 'width: 66%; margin: auto;' : null)}
-  ${props => (props.noParticles ? 'background: #fff;' : null)}
+  ${props =>
+    props.noParticles
+      ? 'background: #fff;'
+      : null}
   @media screen and (max-width: 480px) {
     width: 95%;
     margin: auto;
@@ -195,10 +199,20 @@ const Button = styled.a`
   border-radius: 15px;
   text-transform: uppercase;
   text-align: center;
+  transition: all 0.25s;
+  cursor: pointer;
   ${props =>
     props.alt
-      ? `background-color:${yellow}; color:#fff; font-size: 25px;`
+    ? `background-color:${yellow}; color:#fff; font-size: 25px; border: none;`
+    : null}
+  &:hover {
+    border: 5px solid ${yellow}ab;
+    color: ${yellow}ab;
+    ${props =>
+    props.alt
+      ? `background-color:${yellow}ab; color:#fff; font-size: 25px; border: none`
       : null}
+  }
 `
 
 const DesignMolecule = styled.img`
@@ -265,7 +279,7 @@ const YellowBar = styled.div`
 `
 
 const FaqContainer = styled.div`
-  margin: 200px 8% 75px 8%;
+  margin: 0 8% 0 8%;
 `
 
 const FlexCenter = styled.div`
@@ -454,7 +468,7 @@ class SodiumHalogen extends Component {
                   customer.
                 </li>
               </Ul>
-              <H2 alignLeft>
+              <H2 alt alignLeft>
                 Sodium Halogen can help you design and build it.
               </H2>
             </ContentBlock>
@@ -468,7 +482,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={brandCreationIcon}
                 />
-                <H1>Brand Identity Design & Development</H1>
+                <H2>Brand Identity Design & Development</H2>
                 <P>
                   Create an entire brand identity system that helps you achieve
                   your goals and works for your business
@@ -487,7 +501,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={appDesignIcon}
                 />
-                <H1>Software Application Design & Development</H1>
+                <H2>Software Application Design & Development</H2>
                 <P>
                   Does your organization have internal processes that software
                   could automate? Maybe you have an idea but don’t know how to
@@ -503,7 +517,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={userExperienceIcon}
                 />
-                <H1>Web & Interaction DesignUX/UI</H1>
+                <H2>Web & Interaction DesignUX/UI</H2>
                 <P>
                   Is your website or application not converting the way it
                   should? Are users getting stuck or not understanding how to
@@ -519,7 +533,7 @@ class SodiumHalogen extends Component {
                   height={achievementIconHeight}
                   src={virtualRealityIcon}
                 />
-                <H1>Virtual Reality Design & Development</H1>
+                <H2>Virtual Reality Design & Development</H2>
                 <P>
                   Got a crazy brilliant idea for how you can use virtual reality
                   to accomplish your business goals? Sounds like our kind of
@@ -659,10 +673,8 @@ class SodiumHalogen extends Component {
           </Section>
           <CTA>
             <H1>Your bottom-line called.</H1>
-            <P>
-              It wants to know how our Designtific Method can help.
-            </P>
-            <FlexCenter style={{paddingTop: '50px'}}>
+            <P>It wants to know how our Designtific Method can help.</P>
+            <FlexCenter style={{ paddingTop: '50px' }}>
               <Button class="btn" href="http://bit.ly/shform" alt>
                 Tell us about your project
               </Button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const Question = styled.div`
-  border: solid 1px #d3d655;
+  /* border: solid 1px #d3d655; */
   background-color: #d3d655;
   color: #fff;
   border-top-left-radius: 100px;
@@ -11,6 +11,7 @@ const Question = styled.div`
   padding: 30px 20px;
   margin-bottom: 17px;
   position: relative;
+  transition: all 0.25s;
   cursor: pointer;
   & > h1 {
     font-family: 'FreightSans Pro';
@@ -19,6 +20,9 @@ const Question = styled.div`
     @media screen and (max-width: 480px) {
       font-size: 20px;
     }
+  }
+  &:hover {
+    background-color: #e1e393;
   }
 `
 
