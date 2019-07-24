@@ -13,13 +13,26 @@ import FaqDropdown from '../components/SHPage/FaqDropdown'
 
 // images
 import ATALogoImg from '../img/ata-logo-alpha.png'
-import ATALogoBlack from '../img/ata-logo-black.png'
 import SHLogoImg from '../img/sh-logo.png'
 import DesignMoleculeImg from '../img/designtific-molecule.png'
 import appDesignIcon from '../img/app-design-developement.png'
 import brandCreationIcon from '../img/brand-creation.png'
 import userExperienceIcon from '../img/user-experience.png'
 import virtualRealityIcon from '../img/virtual-reality.png'
+
+// logo section images
+import PopVoxLogo from '../img/sh-page/popvox-logo.png'
+import GELogo from '../img/sh-page/ge-logo.png'
+import VanderbiltLogo from '../img/sh-page/vanderbilt-logo.png'
+import NetworkForGoodLogo from '../img/sh-page/networkforgood-logo.png'
+import IronIoLogo from '../img/sh-page/ironio-logo.png'
+import EstateAssistLogo from '../img/sh-page/estateassist-logo.png'
+import HavenLogo from '../img/sh-page/haven-logo.png'
+import AllygnLogo from '../img/sh-page/allygn-logo.png'
+import BypassLogo from '../img/sh-page/bypass-logo.png'
+import ChickFilALogo from '../img/sh-page/chickfila-logo.png'
+import ZondaLogo from '../img/sh-page/zonda-logo.png'
+import MarsLogo from '../img/sh-page/mars-logo.png'
 
 const yellow = '#D3D655'
 
@@ -203,15 +216,15 @@ const Button = styled.a`
   cursor: pointer;
   ${props =>
     props.alt
-    ? `background-color:${yellow}; color:#fff; font-size: 25px; border: none;`
-    : null}
+      ? `background-color:${yellow}; color:#fff; font-size: 25px; border: none;`
+      : null}
   &:hover {
     border: 5px solid ${yellow}ab;
     color: ${yellow}ab;
     ${props =>
-    props.alt
-      ? `background-color:${yellow}ab; color:#fff; font-size: 25px; border: none`
-      : null}
+      props.alt
+        ? `background-color:${yellow}ab; color:#fff; font-size: 25px; border: none`
+        : null}
   }
 `
 
@@ -252,14 +265,15 @@ const QuoteComma = styled.p`
 
 const CompanyLogoGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 10%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1%;
   grid-row-gap: 50 px;
   grid-auto-rows: minmax(100px, auto);
   padding: 0 10%;
   margin: 30px 0 60px 0;
   & > img {
     width: 100%;
+    filter: brightness(1.5);
   }
 `
 
@@ -580,12 +594,18 @@ class SodiumHalogen extends Component {
           <Section>
             <H1>Over the past 18 years we've helped:</H1>
             <CompanyLogoGrid>
-              <img src={ATALogoBlack} />
-              <img src={ATALogoBlack} />
-              <img src={ATALogoBlack} />
-              <img src={ATALogoBlack} />
-              <img src={ATALogoBlack} />
-              <img src={ATALogoBlack} />
+              <img src={PopVoxLogo} />
+              <img src={GELogo} />
+              <img src={VanderbiltLogo} />
+              <img src={NetworkForGoodLogo} />
+              <img src={IronIoLogo} />
+              <img src={EstateAssistLogo} />
+              <img src={HavenLogo} />
+              <img src={AllygnLogo} />
+              <img src={BypassLogo} />
+              <img src={ChickFilALogo} />
+              <img src={ZondaLogo} />
+              <img src={MarsLogo} />
             </CompanyLogoGrid>
             <FlexCenter>
               <Button>Start your project</Button>
