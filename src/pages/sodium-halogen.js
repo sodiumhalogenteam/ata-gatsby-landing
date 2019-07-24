@@ -695,7 +695,7 @@ class SodiumHalogen extends Component {
             <H1>Your bottom-line called.</H1>
             <P>It wants to know how our Designtific Method can help.</P>
             <FlexCenter style={{ paddingTop: '50px' }}>
-              <Button class="btn" href="http://bit.ly/shform" alt>
+              <Button href="http://bit.ly/shform" alt>
                 Tell us about your project
               </Button>
             </FlexCenter>
