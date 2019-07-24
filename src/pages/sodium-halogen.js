@@ -183,7 +183,7 @@ const AchievementIcon = styled.img`
   margin-bottom: 10px;
 `
 
-const Button = styled.button`
+const Button = styled.a`
   font-family: freight-sans-pro, sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
@@ -194,7 +194,7 @@ const Button = styled.button`
   padding: 10px 40px;
   border-radius: 15px;
   text-transform: uppercase;
-  ${props => (!props.alignLeft ? 'margin: auto; display: block;' : null)}
+  text-align: center;
   ${props =>
     props.alt
       ? `background-color:${yellow}; color:#fff; font-size: 25px;`
@@ -256,37 +256,6 @@ const CTA = styled.div`
   p {
     color: #fff;
   }
-  form {
-    display: flex;
-    justify-content: center;
-    @media screen and (max-width: 480px) {
-      align-items: center;
-      flex-direction: column;
-    }
-    margin-top: 50px;
-    input {
-      font-family: freight-sans-pro, sans-serif;
-      font-style: italic;
-      font-weight: 500;
-      width: 30%;
-      font-size: 20px;
-      padding-left: 25px;
-      margin-right: 25px;
-      @media screen and (max-width: 480px) {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 25px;
-        height: 50px;
-      }
-    }
-    button {
-      margin-left: 15px;
-      @media screen and (max-width: 480px) {
-        margin-left: 0;
-        margin-top: 15px;
-      }
-    }
-  }
 `
 
 const YellowBar = styled.div`
@@ -297,6 +266,13 @@ const YellowBar = styled.div`
 
 const FaqContainer = styled.div`
   margin: 200px 8% 75px 8%;
+`
+
+const FlexCenter = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 // the SodiumHalogen page
@@ -555,7 +531,9 @@ class SodiumHalogen extends Component {
                 </P>
               </div>
             </AchievementGrid>
-            <Button>Start a project</Button>
+            <FlexCenter>
+              <Button>Start a project</Button>
+            </FlexCenter>
           </Section>
           <Section container>
             <H1>Our Process: The Designtific Method</H1>
@@ -595,7 +573,9 @@ class SodiumHalogen extends Component {
               <img src={ATALogoBlack} />
               <img src={ATALogoBlack} />
             </CompanyLogoGrid>
-            <Button>Start your project</Button>
+            <FlexCenter>
+              <Button>Start your project</Button>
+            </FlexCenter>
           </Section>
           <Section>
             <FaqContainer>
@@ -674,23 +654,19 @@ class SodiumHalogen extends Component {
                   ever-growing list.
                 </li>
               </Ul>
-              <Button alignLeft>Start your project</Button>
+              <Button>Start your project</Button>
             </ContentBlock>
           </Section>
           <CTA>
-            <H1>Free Project Checklist</H1>
+            <H1>Your bottom-line called.</H1>
             <P>
-              With 17 years of experience in this field, we know what things you
-              should consider when starting your project. Download this free
-              resource and start your project with confidence.
+              It wants to know how our Designtific Method can help.
             </P>
-            <form action="">
-              <input type="text" name="name" id="" placeholder="Full Name" />
-              <input type="email" name="email" id="" placeholder="Email" />
-              <Button alignLeft alt>
-                Submit
+            <FlexCenter style={{paddingTop: '50px'}}>
+              <Button class="btn" href="http://bit.ly/shform" alt>
+                Tell us about your project
               </Button>
-            </form>
+            </FlexCenter>
           </CTA>
           <YellowBar />
         </>
