@@ -12,13 +12,14 @@ import YoutubeIframe from '../components/YoutubeIframe'
 import FaqDropdown from '../components/SHPage/FaqDropdown'
 
 // images
-import ATALogoImg from '../img/ata-logo-alpha.png'
-import SHLogoImg from '../img/sh-logo.png'
-import DesignMoleculeImg from '../img/designtific-molecule.png'
-import appDesignIcon from '../img/app-design-developement.png'
-import brandCreationIcon from '../img/brand-creation.png'
-import userExperienceIcon from '../img/user-experience.png'
-import virtualRealityIcon from '../img/virtual-reality.png'
+import ATALogoImg from '../img/sh-page/ata-logo-alpha.png'
+import SHLogoImg from '../img/sh-page/sh-logo.png'
+import DesignAtomImg from '../img/sh-page/designtific-molecule.png'
+import appDesignIcon from '../img/sh-page/app-design-developement.png'
+import brandCreationIcon from '../img/sh-page/brand-creation.png'
+import userExperienceIcon from '../img/sh-page/user-experience.png'
+import virtualRealityIcon from '../img/sh-page/virtual-reality.png'
+import brainstorm from '../img/sh-page/william-chance-brainstorm.png'
 
 // logo section images
 import PopVoxLogo from '../img/sh-page/popvox-logo.png'
@@ -35,6 +36,7 @@ import ZondaLogo from '../img/sh-page/zonda-logo.png'
 import MarsLogo from '../img/sh-page/mars-logo.png'
 
 const yellow = '#D3D655'
+const shGreen = '#8d980b'
 
 const Ul = styled.ul`
   padding-bottom: 50px;
@@ -93,7 +95,11 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(149, 150, 152);
+  background-image: url(${brainstorm});
+  background-color: #626365;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-position: center;
   color: #fff;
   & > h1 {
     font-family: 'Merriweather';
@@ -170,7 +176,7 @@ const ATALogo = styled.div`
 `
 
 const SHLogo = styled.div`
-  background-color: rgb(187, 192, 91);
+  background-color: ${shGreen};
   > img {
     width: 200px;
   }
@@ -204,33 +210,27 @@ const Button = styled.a`
   font-family: freight-sans-pro, sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
-  border: 5px solid ${yellow};
-  color: ${yellow};
-  font-size: 30px;
-  background: none;
   padding: 10px 40px;
   border-radius: 15px;
   text-transform: uppercase;
   text-align: center;
   transition: all 0.25s;
   cursor: pointer;
-  ${props =>
-    props.alt
-      ? `background-color:${yellow}; color:#fff; font-size: 25px; border: none;`
-      : null}
+  background-color: ${shGreen};
+  color: #fff;
+  font-size: 25px;
   &:hover {
-    border: 5px solid ${yellow}ab;
-    color: ${yellow}ab;
-    ${props =>
-      props.alt
-        ? `background-color:${yellow}ab; color:#fff; font-size: 25px; border: none`
-        : null}
+    background-color: ${shGreen}ab;
+    color: #fff;
+    font-size: 25px;
   }
 `
 
-const DesignMolecule = styled.img`
+const DesignAtom = styled.img`
   padding: 80px 0;
   max-width: 100%;
+  display: block;
+  margin: auto;
 `
 
 const VideoTestimonial = styled.div`
@@ -275,6 +275,9 @@ const CompanyLogoGrid = styled.div`
     width: 100%;
     filter: brightness(1.5);
   }
+  @media screen and (max-width: 480px) {
+    display: block;
+  }
 `
 
 const CTA = styled.div`
@@ -289,7 +292,7 @@ const CTA = styled.div`
 const YellowBar = styled.div`
   height: 20px;
   width: 100%;
-  background-color: ${yellow};
+  background-color: ${shGreen};
 `
 
 const FaqContainer = styled.div`
@@ -560,7 +563,7 @@ class SodiumHalogen extends Component {
               </div>
             </AchievementGrid>
             <FlexCenter>
-              <Button>Start a project</Button>
+              <Button href="http://bit.ly/shform">Start your project</Button>
             </FlexCenter>
           </Section>
           <Section container>
@@ -569,17 +572,14 @@ class SodiumHalogen extends Component {
               Our Designtific Method focuses on solving your customers’ problems
               while accomplishing your business goals.
             </P>
-            <DesignMolecule
-              src={DesignMoleculeImg}
-              alt="designtific molecule"
-            />
+            <DesignAtom src={DesignAtomImg} alt="designtific molecule" />
             <P>
               Our small, multi-disciplinary team has spent the last 18 years
               experimenting and refining our process for turning great ideas
               into solid strategy and great digital products and experiences.
             </P>
           </Section>
-          <VideoTestimonial>
+          {/* <VideoTestimonial>
             <YoutubeIframe />
             <QuoteContainer>
               <QuoteComma>“</QuoteComma>
@@ -590,7 +590,7 @@ class SodiumHalogen extends Component {
               </P>
               <P>- John Doe, President</P>
             </QuoteContainer>
-          </VideoTestimonial>
+          </VideoTestimonial> */}
           <Section>
             <H1>Over the past 18 years we've helped:</H1>
             <CompanyLogoGrid>
@@ -608,11 +608,11 @@ class SodiumHalogen extends Component {
               <img src={MarsLogo} />
             </CompanyLogoGrid>
             <FlexCenter>
-              <Button>Start your project</Button>
+              <Button href="http://bit.ly/shform">Start your project</Button>
             </FlexCenter>
           </Section>
           <Section>
-            <FaqContainer>
+            {/* <FaqContainer>
               <FaqDropdown header="How does it work?">
                 <P>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
@@ -665,7 +665,7 @@ class SodiumHalogen extends Component {
                   platea dictumst.
                 </P>
               </FaqDropdown>
-            </FaqContainer>
+            </FaqContainer> */}
           </Section>
           <Section>
             <ContentBlock flip>
@@ -677,25 +677,22 @@ class SodiumHalogen extends Component {
               <Ul>
                 <li>The owner has been doing his/her own marketing</li>
                 <li>
-                  There is little to no in-house marketing staf or department
+                  There is little to no in-house marketing staff, or they’re
+                  struggling to keep pace
                 </li>
                 <li>
-                  There is little to no in-house marketing staf or department
-                </li>
-                <li>
-                  The in-house marketing manager is swamped with an assortment
-                  of tasks – and they’re struggling to keep pace with the
-                  ever-growing list.
+                  The organization is faced with an issue that technology could
+                  solve, but doesn't have the means to resolve it
                 </li>
               </Ul>
-              <Button>Start your project</Button>
+              <Button href="http://bit.ly/shform">Start your project</Button>
             </ContentBlock>
           </Section>
           <CTA>
             <H1>Your bottom-line called.</H1>
             <P>It wants to know how our Designtific Method can help.</P>
             <FlexCenter style={{ paddingTop: '50px' }}>
-              <Button href="http://bit.ly/shform" alt>
+              <Button href="http://bit.ly/shform">
                 Tell us about your project
               </Button>
             </FlexCenter>
