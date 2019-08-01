@@ -36,7 +36,7 @@ import ZondaLogo from '../img/sh-page/zonda-logo.png'
 import MarsLogo from '../img/sh-page/mars-logo.png'
 
 const yellow = '#D3D655'
-const shGreen = '#8d980b'
+const shGreen = '#BBCE00'
 
 const Ul = styled.ul`
   padding-bottom: 50px;
@@ -281,12 +281,7 @@ const CompanyLogoGrid = styled.div`
 `
 
 const CTA = styled.div`
-  background-color: RGB(45, 58, 67);
   padding: 60px 8% 100px 8%;
-  h1,
-  p {
-    color: #fff;
-  }
 `
 
 const YellowBar = styled.div`

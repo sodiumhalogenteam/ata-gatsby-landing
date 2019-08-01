@@ -8,7 +8,7 @@ const ContentBlockStyles = styled.div`
 `
 
 const ContentBlockDisplay = styled.div`
-  border: 10px solid #8d980b;
+  border: 10px solid #BBCE00;
   padding: 60px 40px;
   width: 100%;
   margin: 0 40px;
@@ -23,7 +23,7 @@ const ContentBlockDisplay = styled.div`
 
 const ContentBlockBox = styled.div`
   width: 30%;
-  background-color: #8d980b;
+  background-color: #BBCE00;
   @media screen and (max-width: 480px) {
     display: none;
   }
