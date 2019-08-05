@@ -221,6 +221,7 @@ const Button = styled.a`
   background-color: ${shGreen};
   color: #fff;
   font-size: 25px;
+  display: block;
   &:hover {
     background-color: ${shGreen}ab;
     color: #fff;
