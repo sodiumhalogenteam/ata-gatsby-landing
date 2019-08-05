@@ -15,7 +15,7 @@ import FaqDropdown from '../components/SHPage/FaqDropdown'
 import ATALogoImg from '../img/sh-page/ata-logo-alpha.png'
 import SHLogoImg from '../img/sh-page/sh-logo.png'
 import DesignAtomImg from '../img/sh-page/designtific-molecule.png'
-import brainstorm from '../img/sh-page/william-chance-brainstorm.png'
+import header from '../img/sh-page/brainstorming-branding-ideas.jpg'
 
 // svgs
 import BrandingIcon from '../img/sh-page/Branding.svg'
@@ -97,7 +97,7 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(${brainstorm});
+  background-image: url(${header});
   background-color: #626365;
   background-size: cover;
   background-blend-mode: overlay;
