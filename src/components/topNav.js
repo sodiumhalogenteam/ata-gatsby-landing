@@ -142,8 +142,9 @@ class TopNav extends React.Component {
                       >
                         {wordpress_children.map(
                           ({ title, url, wordpress_id }) => (
-                            object_slug === 'services' ||
-                            object_slug === 'who-we-serve'
+                            (object_slug === 'services' ||
+                              object_slug === 'who-we-serve') &&
+                            this.state.path !== 'sodium-halogen'
                               ? (url = url.replace(
                                   'http://atacpa.net',
                                   `${this.state.origin}/${this.state.path}`
