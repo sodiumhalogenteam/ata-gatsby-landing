@@ -15,11 +15,13 @@ import FaqDropdown from '../components/SHPage/FaqDropdown'
 import ATALogoImg from '../img/sh-page/ata-logo-alpha.png'
 import SHLogoImg from '../img/sh-page/sh-logo.png'
 import DesignAtomImg from '../img/sh-page/designtific-molecule.png'
-import appDesignIcon from '../img/sh-page/app-design-developement.png'
-import brandCreationIcon from '../img/sh-page/brand-creation.png'
-import userExperienceIcon from '../img/sh-page/user-experience.png'
-import virtualRealityIcon from '../img/sh-page/virtual-reality.png'
 import brainstorm from '../img/sh-page/william-chance-brainstorm.png'
+
+// svgs
+import BrandingIcon from '../img/sh-page/Branding.svg'
+import SoftwareIcon from '../img/sh-page/Software.svg'
+import UXIcon from '../img/sh-page/UX.svg'
+import VRIcon from '../img/sh-page/VR.svg'
 
 // logo section images
 import PopVoxLogo from '../img/sh-page/popvox-logo.png'
@@ -492,7 +494,7 @@ class SodiumHalogen extends Component {
                 <AchievementIcon
                   ref={this.achievementIcon}
                   height={achievementIconHeight}
-                  src={brandCreationIcon}
+                  src={BrandingIcon}
                 />
                 <H2>Brand Identity Design & Development</H2>
                 <P>
@@ -511,7 +513,7 @@ class SodiumHalogen extends Component {
               <div>
                 <AchievementIcon
                   height={achievementIconHeight}
-                  src={appDesignIcon}
+                  src={SoftwareIcon}
                 />
                 <H2>Software Application Design & Development</H2>
                 <P>
@@ -525,10 +527,7 @@ class SodiumHalogen extends Component {
                 </P>
               </div>
               <div>
-                <AchievementIcon
-                  height={achievementIconHeight}
-                  src={userExperienceIcon}
-                />
+                <AchievementIcon height={achievementIconHeight} src={UXIcon} />
                 <H2>Web & Interaction DesignUX/UI</H2>
                 <P>
                   Is your website or application not converting the way it
@@ -541,10 +540,7 @@ class SodiumHalogen extends Component {
                 </P>
               </div>
               <div>
-                <AchievementIcon
-                  height={achievementIconHeight}
-                  src={virtualRealityIcon}
-                />
+                <AchievementIcon height={achievementIconHeight} src={VRIcon} />
                 <H2>Virtual Reality Design & Development</H2>
                 <P>
                   Got a crazy brilliant idea for how you can use virtual reality
