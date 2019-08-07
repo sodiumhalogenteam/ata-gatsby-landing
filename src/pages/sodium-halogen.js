@@ -279,7 +279,9 @@ const CompanyLogoGrid = styled.div`
     filter: brightness(1.5);
   }
   @media screen and (max-width: 480px) {
-    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding: 0 5%;
   }
 `
 
