@@ -134,39 +134,39 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.downloadMediaFiles = ({
-  nodes,
-  store,
-  cache,
-  createNode,
-  createNodeId,
-  _auth,
-}) => {
-  nodes.map(async node => {
-    let fileNode
-    // Ensures we are only processing Media Files
-    // `wordpress__wp_media` is the media file type name for Wordpress
-    if (node.__type === `wordpress__wp_media`) {
-      try {
-        console.log('URL', node.source_url)
-        fileNode = await createRemoteFileNode({
-          url: node.source_url,
-          parentNodeId: node.id,
-          store,
-          cache,
-          createNode,
-          createNodeId,
-          auth: _auth,
-        })
-      } catch (e) {
-        // Ignore
-      }
-    }
+// exports.downloadMediaFiles = ({
+//   nodes,
+//   store,
+//   cache,
+//   createNode,
+//   createNodeId,
+//   _auth,
+// }) => {
+//   nodes.map(async node => {
+//     let fileNode
+//     // Ensures we are only processing Media Files
+//     // `wordpress__wp_media` is the media file type name for Wordpress
+//     if (node.__type === `wordpress__wp_media`) {
+//       try {
+//         console.log('URL', node.source_url)
+//         fileNode = await createRemoteFileNode({
+//           url: node.source_url,
+//           parentNodeId: node.id,
+//           store,
+//           cache,
+//           createNode,
+//           createNodeId,
+//           auth: _auth,
+//         })
+//       } catch (e) {
+//         // Ignore
+//       }
+//     }
 
-    // Adds a field `localFile` to the node
-    // ___NODE appendix tells Gatsby that this field will link to another node
-    if (fileNode) {
-      node.localFile___NODE = fileNode.id
-    }
-  })
-}
+//     // Adds a field `localFile` to the node
+//     // ___NODE appendix tells Gatsby that this field will link to another node
+//     if (fileNode) {
+//       node.localFile___NODE = fileNode.id
+//     }
+//   })
+// }
