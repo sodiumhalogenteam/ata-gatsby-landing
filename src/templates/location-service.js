@@ -149,9 +149,7 @@ class LocationServiceTemplate extends Component {
           style={{
             backgroundPosition: '50%',
             backgroundSize: 'cover',
-            backgroundImage: `url(${
-              locations.better_featured_image.source_url
-            })`,
+            backgroundImage: `url(${locations.better_featured_image.source_url})`,
           }}
         >
           <div className="bg-filter sTop">
@@ -394,8 +392,6 @@ export const pageQuery = graphql`
             email
             linkdin
             bio
-            Services
-            industries
             principal
             hide_leader
           }

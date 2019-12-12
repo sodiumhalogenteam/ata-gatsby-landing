@@ -144,27 +144,21 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[i].post_name}`}
               >
                 <div>{locations.acf.specialties[i].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[j].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[j].post_name}`}
               >
                 <div>{locations.acf.specialties[j].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[k].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[k].post_name}`}
               >
                 <div>{locations.acf.specialties[k].post_title}</div>
               </a>
@@ -176,18 +170,14 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[i].post_name}`}
               >
                 <div>{locations.acf.specialties[i].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[j].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[j].post_name}`}
               >
                 <div>{locations.acf.specialties[j].post_title}</div>
               </a>
@@ -199,9 +189,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.specialties[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.specialties[i].post_name}`}
               >
                 <div>{locations.acf.specialties[i].post_title}</div>
               </a>
@@ -222,27 +210,21 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[i].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[i].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[j].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[j].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[j].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[k].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[k].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[k].post_title}</div>
               </a>
@@ -254,18 +236,14 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[i].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[i].post_title}</div>
               </a>
             </ServcieBlock>
             <ServcieBlock className="col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[j].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[j].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[j].post_title}</div>
               </a>
@@ -277,9 +255,7 @@ class LocationsTemplate extends Component {
           <SpecialtiesWrap className="row" key={i}>
             <ServcieBlock className="col-md-offset-1 col-md-3">
               <a
-                href={`../${locations.slug}/${
-                  locations.acf.who_we_serve[i].post_name
-                }`}
+                href={`../${locations.slug}/${locations.acf.who_we_serve[i].post_name}`}
               >
                 <div>{locations.acf.who_we_serve[i].post_title}</div>
               </a>
@@ -314,9 +290,7 @@ class LocationsTemplate extends Component {
           style={{
             backgroundPosition: '50%',
             backgroundSize: 'cover',
-            backgroundImage: `url(${
-              locations.better_featured_image.source_url
-            })`,
+            backgroundImage: `url(${locations.better_featured_image.source_url})`,
           }}
         >
           <div className="bg-filter sTop">
@@ -446,6 +420,15 @@ class LocationsTemplate extends Component {
                       <em>{leaders[i].acf.credentials}</em>
                       <small>{leaders[i].acf.title}</small>
                     </h4>
+                    <p>
+                      {leaders[i].acf.email ? (
+                        <a href={`mailto:${leaders[i].acf.email}`}>
+                          {leaders[i].acf.email}
+                        </a>
+                      ) : (
+                        <p>--</p>
+                      )}
+                    </p>
                     <p>
                       <a href={`tel:${leaders[i].acf.phone}`}>
                         {leaders[i].acf.phone}
@@ -577,8 +560,6 @@ export const pageQuery = graphql`
             email
             linkdin
             bio
-            Services
-            industries
             principal
             hide_leader
           }

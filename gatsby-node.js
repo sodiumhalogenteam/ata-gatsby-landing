@@ -2,6 +2,7 @@ const _ = require(`lodash`)
 const Promise = require(`bluebird`)
 const path = require(`path`)
 const slash = require(`slash`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 // Implement the Gatsby API “createPages”. This is
 // called after the Gatsby bootstrap is finished so you have
@@ -130,5 +131,42 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
     // ==== END LOCATIONS & SERVICES ====
+  })
+}
+
+exports.downloadMediaFiles = ({
+  nodes,
+  store,
+  cache,
+  createNode,
+  createNodeId,
+  _auth,
+}) => {
+  nodes.map(async node => {
+    let fileNode
+    // Ensures we are only processing Media Files
+    // `wordpress__wp_media` is the media file type name for Wordpress
+    if (node.__type === `wordpress__wp_media`) {
+      try {
+        console.log('URL', node.source_url)
+        fileNode = await createRemoteFileNode({
+          url: node.source_url,
+          parentNodeId: node.id,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          auth: _auth,
+        })
+      } catch (e) {
+        // Ignore
+      }
+    }
+
+    // Adds a field `localFile` to the node
+    // ___NODE appendix tells Gatsby that this field will link to another node
+    if (fileNode) {
+      node.localFile___NODE = fileNode.id
+    }
   })
 }

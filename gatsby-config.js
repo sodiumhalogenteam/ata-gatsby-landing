@@ -7,11 +7,19 @@ module.exports = {
     author: 'Adam Curl',
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: 'images',
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
+    'gatsby-image',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
