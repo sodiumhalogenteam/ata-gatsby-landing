@@ -121,13 +121,19 @@ class BottomNav extends React.Component {
                     </a>
                   </li>
                   <li>
+                    <a href="https://www.atacpa.net/center-point-solutions">
+                      Center Point
+                    </a>
+                  </li>
+                  <li>
                     <a href="https://www.atacpa.net/revolution-partners">
                       Revolution Partners
                     </a>
                   </li>
+
                   <li>
-                    <a href="https://www.atacpa.net/center-point-solutions">
-                      Center Point
+                    <a href="https://locations.atacpa.net/sodium-halogen/">
+                      Sodium Halogen
                     </a>
                   </li>
                 </ul>
