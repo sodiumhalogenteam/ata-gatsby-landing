@@ -1,7 +1,7 @@
 const sortLeaders = (leaderTitle, data, locations) => {
   let leaders = []
   data.allWordpressWpLeader.edges.map(({ node }) =>
-    node.acf.all_locations && node.acf.title === leaderTitle
+    node.acf.all_locations && node.acf.title.trim() === leaderTitle
       ? node.acf.all_locations.map(({ post_title }) =>
           post_title === locations.title ? leaders.push(node) : null
         )

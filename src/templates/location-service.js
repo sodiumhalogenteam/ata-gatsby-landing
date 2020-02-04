@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import { Modal } from 'react-bootstrap'
 import Helmet from 'react-helmet'
 
+import sortLeaders from '../components/leaderParser'
+
 const SpecialtiesWrap = styled.div`
   .services-list {
     display: flex;
@@ -103,25 +105,11 @@ class LocationServiceTemplate extends Component {
     const description = `ATA CPA's ${
       locations.acf.city
     }, ${locations.acf.state.toUpperCase()} location specializes in ${service_title}`
-    let leaders = []
-    data.allWordpressWpLeader.edges.map(({ node }) =>
-      node.acf.all_locations
-        ? node.acf.all_locations.map(({ post_title }) =>
-            post_title === locations.title ? leaders.push(node) : null
-          )
-        : null
-    )
 
-    // sort the leaders array using compare function
-    leaders.sort(function(a, b) {
-      if (a.title < b.title) {
-        return -1
-      }
-      if (a.title > b.title) {
-        return 1
-      }
-      return 0
-    })
+    const managers = sortLeaders('Chief Manager', data, locations)
+    const leaders = sortLeaders('Member/Partner', data, locations)
+    const principals = sortLeaders('Principal', data, locations)
+    const leadership = [...managers, ...leaders, ...principals]
 
     return (
       <Layout>
@@ -220,7 +208,7 @@ class LocationServiceTemplate extends Component {
         ) : null}
 
         <div className="section-lg team-grid container">
-          {leaders.length !== 0 ? (
+          {leadership.length !== 0 ? (
             <div className="row">
               <h2 className="leader-title text-center col-sm-12">
                 {locations.acf.city},{' '}
@@ -229,18 +217,18 @@ class LocationServiceTemplate extends Component {
             </div>
           ) : null}
 
-          {leaders.length !== 0 ? (
+          {leadership.length !== 0 ? (
             <CenterRow className="row">
-              {leaders.map((leader, i) => (
+              {leadership.map((leader, i) => (
                 <CenterCol className="col-lg-3 col-md-3 col-sm-6 staff" key={i}>
                   <div className="profile-circle">
                     <div className="hover-content ">
                       <img
-                        src={leaders[i].better_featured_image.source_url}
+                        src={leadership[i].better_featured_image.source_url}
                         alt="leader"
                         className="img-responsive"
                       />
-                      {leaders[i].acf.bio !== '' ? (
+                      {leadership[i].acf.bio !== '' ? (
                         <div className="content-circle content-center">
                           <ul className="circle-icons icons-list">
                             <li>
@@ -256,18 +244,18 @@ class LocationServiceTemplate extends Component {
                       ) : null}
                     </div>
                     <h4>
-                      {leaders[i].title},<br />
-                      <em>{leaders[i].acf.credentials}</em>
-                      <small>{leaders[i].acf.title}</small>
+                      {leadership[i].title},<br />
+                      <em>{leadership[i].acf.credentials}</em>
+                      <small>{leadership[i].acf.title}</small>
                     </h4>
                     <p>
-                      <a href={`tel:${leaders[i].acf.phone}`}>
-                        {leaders[i].acf.phone}
+                      <a href={`tel:${leadership[i].acf.phone}`}>
+                        {leadership[i].acf.phone}
                       </a>
                     </p>
                   </div>
 
-                  {leaders[i].acf.bio !== '' ? (
+                  {leadership[i].acf.bio !== '' ? (
                     <Modal
                       show={this.state.show === i}
                       onHide={() => this.handleClose()}
@@ -283,20 +271,20 @@ class LocationServiceTemplate extends Component {
                         >
                           <span aria-hidden="true"> &times; </span>
                         </button>
-                        <h4>{leaders[i].title}'s Bio</h4>
+                        <h4>{leadership[i].title}'s Bio</h4>
                       </Modal.Header>
                       <Modal.Body>
                         <img
                           width="150"
                           height="150"
-                          src={leaders[i].better_featured_image.source_url}
+                          src={leadership[i].better_featured_image.source_url}
                           alt="leader"
                           className="img-responsive"
                         />
                         <div className="space-sm" />
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: leaders[i].acf.bio,
+                            __html: leadership[i].acf.bio,
                           }}
                         />
                       </Modal.Body>
